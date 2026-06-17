@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    --font-arabic: var(--font-sans);
     --background: 38 33% 97%;
     --foreground: 220 20% 14%;
 

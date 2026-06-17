@@ -28,6 +28,7 @@ This repository includes a **Next.js web app** and a **Chrome extension** that s
 - Toolbar popup with the same Fusha / Tunisian modes
 - Bring-your-own Gemini API key (stored locally in the browser)
 - Copy output and recent history (last 10)
+- Saved bookmarks for conversions you want to keep
 - English / Arabic interface
 
 See [extension/README.md](extension/README.md) for extension-specific setup and publishing steps.
@@ -61,8 +62,8 @@ See [extension/README.md](extension/README.md) for extension-specific setup and 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Abdelkaderbzz/arabic-converter-extenstion.git
-cd arabic-converter-extenstion
+git clone https://github.com/Abdelkaderbzz/arabic-converter-extension.git
+cd arabic-converter-extension
 ```
 
 2. Install dependencies:

@@ -55,7 +55,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        arabic: ["var(--font-arabic)", "system-ui", "sans-serif"],
+        arabic: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

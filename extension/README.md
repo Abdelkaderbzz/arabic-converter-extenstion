@@ -4,14 +4,15 @@ A Manifest V3 Chrome extension that converts Tunisian Arabic (Latin / Arabizi) i
 
 It runs entirely in the browser — no backend required. Each user supplies their own free Gemini API key, stored only in `chrome.storage.local`.
 
-Part of the [Arabic Converter](https://github.com/Abdelkaderbzz/arabic-converter-extenstion) project.
+Part of the [Arabic Converter](https://github.com/Abdelkaderbzz/arabic-converter-extension) project.
 
 ## Features
 
 - Toolbar popup converter with Fusha / Tunisian modes
 - Bring-your-own Gemini API key (free tier)
-- Copy output and recent history (last 10 entries)
-- Per-item copy and delete in history
+- Copy output, recent history (last 10), and saved bookmarks
+- Bookmark conversions to keep them permanently
+- Per-item copy, save, and delete in history
 - English / Arabic interface with RTL support
 
 ## Files
@@ -22,7 +23,7 @@ extension/
 ├── popup.html        # popup UI
 ├── popup.css         # styling (teal/cream theme)
 ├── popup.js          # logic + Gemini API call
-└── icons/            # icon16.png, icon48.png, icon128.png
+└── icons/            # main-logo.png, icon16.png, icon48.png, icon128.png
 ```
 
 ## Get a free Gemini API key
@@ -65,4 +66,4 @@ Upload `arabic-converter-extension.zip` at the [Chrome Web Store Developer Dashb
 
 ## Web app
 
-For the full Next.js version with saved bookmarks, examples, and server-side API key management, see the [main README](../README.md).
+For the full Next.js version with examples and server-side API key management, see the [main README](../README.md).

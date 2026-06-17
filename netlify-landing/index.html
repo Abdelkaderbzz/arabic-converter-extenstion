@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>Arabic Converter | Chrome Extension for Arabizi to Arabic &amp; Fusha</title>
+    <meta
+      name="description"
+      content="Free Chrome extension that converts Arabizi and Latin text into Tunisian Arabic script or Modern Standard Arabic (Fusha). No Arabic keyboard needed. Fast, bilingual, powered by Gemini."
+    />
+    <meta
+      name="keywords"
+      content="Arabic converter, Arabizi, Tunisian Arabic, Fusha, Chrome extension, Latin to Arabic, Arabic keyboard alternative, 3aslema, Arabizi to Arabic, MSA converter, Tunisian dialect"
+    />
+    <meta name="author" content="abdelkaderbzz" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="theme-color" content="#25876d" />
+    <link rel="canonical" href="https://arabic-converter.netlify.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Arabic Converter" />
+    <meta
+      property="og:title"
+      content="Arabic Converter | Chrome Extension for Arabizi to Arabic &amp; Fusha"
+    />
+    <meta
+      property="og:description"
+      content="Type in Latin, get Arabic instantly. Convert Arabizi to Tunisian Arabic script or Fusha from your browser toolbar."
+    />
+    <meta property="og:url" content="https://arabic-converter.netlify.app/" />
+    <meta property="og:image" content="https://arabic-converter.netlify.app/icon.png" />
+    <meta property="og:image:alt" content="Arabic Converter Chrome extension icon" />
+    <meta property="og:image:width" content="128" />
+    <meta property="og:image:height" content="128" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Arabic Converter | Chrome Extension" />
+    <meta
+      name="twitter:description"
+      content="Convert Arabizi and Latin phrases to Tunisian Arabic or Fusha in one click. Free Chrome extension."
+    />
+    <meta name="twitter:image" content="https://arabic-converter.netlify.app/icon.png" />
+    <meta name="twitter:image:alt" content="Arabic Converter Chrome extension icon" />
+
+    <!-- Icons -->
+    <link rel="icon" href="./icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./icon.png" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://arabic-converter.netlify.app/#website",
+            "url": "https://arabic-converter.netlify.app/",
+            "name": "Arabic Converter",
+            "description": "Chrome extension landing page for converting Arabizi and Latin text to Tunisian Arabic or Fusha.",
+            "inLanguage": "en",
+            "publisher": {
+              "@id": "https://arabic-converter.netlify.app/#person"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://arabic-converter.netlify.app/#webpage",
+            "url": "https://arabic-converter.netlify.app/",
+            "name": "Arabic Converter | Chrome Extension",
+            "description": "Free Chrome extension that converts Arabizi and Latin text into Tunisian Arabic script or Modern Standard Arabic (Fusha).",
+            "isPartOf": {
+              "@id": "https://arabic-converter.netlify.app/#website"
+            },
+            "about": {
+              "@id": "https://arabic-converter.netlify.app/#software"
+            },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://arabic-converter.netlify.app/#software",
+            "name": "Arabic Converter",
+            "applicationCategory": "BrowserApplication",
+            "applicationSubCategory": "Productivity",
+            "operatingSystem": "Chrome",
+            "browserRequirements": "Requires Google Chrome",
+            "description": "Convert Tunisian Arabic written in Latin letters (Arabizi) into Arabic script or Modern Standard Arabic (Fusha).",
+            "url": "https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm",
+            "downloadUrl": "https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm",
+            "softwareVersion": "1.1.0",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            },
+            "featureList": [
+              "Latin and Arabizi to Arabic conversion",
+              "Tunisian Arabic script mode",
+              "Modern Standard Arabic (Fusha) mode",
+              "English and Arabic interface",
+              "Copy output, conversion history, and saved bookmarks"
+            ],
+            "author": {
+              "@id": "https://arabic-converter.netlify.app/#person"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://arabic-converter.netlify.app/#person",
+            "name": "abdelkaderbzz",
+            "url": "https://abdelkader.pro/"
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      @font-face {
+        font-family: "Thmanyah Sans";
+        src: url("./thmanyah-font/thmanyahsans-Light.woff2") format("woff2");
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Thmanyah Sans";
+        src: url("./thmanyah-font/thmanyahsans-Regular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Thmanyah Sans";
+        src: url("./thmanyah-font/thmanyahsans-Medium.woff2") format("woff2");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Thmanyah Sans";
+        src: url("./thmanyah-font/thmanyahsans-Bold.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --bg: #f7f4ee;
+        --card: #ffffff;
+        --foreground: #1d2329;
+        --muted: #6b7280;
+        --primary: #25876d;
+        --primary-dark: #1d6b57;
+        --primary-soft: rgba(37, 135, 109, 0.1);
+        --accent: #fff4eb;
+        --border: #e4e0d6;
+        --radius: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Thmanyah Sans", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--foreground);
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .page-bg {
+        background-color: var(--bg);
+        background-image:
+          radial-gradient(
+            ellipse 80% 50% at 50% -20%,
+            rgba(37, 135, 109, 0.1),
+            transparent
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 100% 100%,
+            rgba(230, 120, 60, 0.07),
+            transparent
+          );
+        min-height: 100vh;
+      }
+
+      .container {
+        width: min(1100px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      /* Header */
+      header {
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand img {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(37, 135, 109, 0.2);
+      }
+
+      .brand span {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(37, 135, 109, 0.28);
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-dark);
+      }
+
+      .btn-ghost {
+        background: var(--card);
+        color: var(--foreground);
+        border: 1px solid var(--border);
+      }
+
+      /* Hero */
+      .hero {
+        padding: 48px 0 64px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .badge {
+        display: inline-block;
+        background: var(--primary-soft);
+        color: var(--primary);
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 999px;
+        margin-bottom: 16px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.15;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+
+      .hero p.lead {
+        font-size: 1.15rem;
+        color: var(--muted);
+        margin-bottom: 28px;
+        max-width: 52ch;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: 0 20px 50px rgba(29, 35, 41, 0.08);
+      }
+
+      .hero-card .label {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
+
+      .hero-card .latin {
+        font-size: 1rem;
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+
+      .hero-card .arabic {
+        font-size: 1.5rem;
+        text-align: right;
+        direction: rtl;
+        padding: 16px;
+        background: var(--bg);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+
+      .hero-card .modes {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .mode-pill {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #9a4f1a;
+        font-weight: 600;
+      }
+
+      .mode-pill.active {
+        background: var(--primary-soft);
+        color: var(--primary);
+      }
+
+      /* Sections */
+      section {
+        padding: 56px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .section-title h2 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        margin-bottom: 10px;
+      }
+
+      .section-title p {
+        color: var(--muted);
+        max-width: 60ch;
+        margin: 0 auto;
+      }
+
+      /* Problem cards */
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+      }
+
+      .card .icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--primary-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        margin-bottom: 16px;
+      }
+
+      .card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+
+      .card p {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      /* Demo video */
+      .demo {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: calc(var(--radius) + 4px);
+        padding: 20px;
+        box-shadow: 0 24px 60px rgba(29, 35, 41, 0.08);
+      }
+
+      .video-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #0f1419;
+      }
+
+      .video-wrap video,
+      .video-wrap iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      .video-placeholder {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        color: #cbd5e1;
+        text-align: center;
+        padding: 24px;
+        background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+      }
+
+      .video-placeholder.hidden {
+        display: none;
+      }
+
+      .video-placeholder .play {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: rgba(37, 135, 109, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #fff;
+      }
+
+      .video-placeholder p {
+        font-size: 0.95rem;
+        max-width: 36ch;
+      }
+
+      .demo-note {
+        margin-top: 14px;
+        font-size: 0.85rem;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      /* Features */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .feature {
+        display: flex;
+        gap: 14px;
+        padding: 20px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+      }
+
+      .feature .check {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--primary-soft);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      .feature h4 {
+        font-size: 1rem;
+        margin-bottom: 4px;
+      }
+
+      .feature p {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      /* Steps */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .step {
+        text-align: center;
+        padding: 24px 16px;
+      }
+
+      .step-num {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: #fff;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 14px;
+      }
+
+      .step h4 {
+        margin-bottom: 8px;
+      }
+
+      .step p {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      /* CTA */
+      .cta {
+        text-align: center;
+        padding: 64px 32px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: calc(var(--radius) + 4px);
+        margin-bottom: 48px;
+      }
+
+      .cta h2 {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        margin-bottom: 12px;
+      }
+
+      .cta p {
+        color: var(--muted);
+        margin-bottom: 24px;
+        max-width: 50ch;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .contribute {
+        text-align: center;
+        padding: 40px 28px;
+        background: var(--primary-soft);
+        border: 1px solid rgba(37, 135, 109, 0.2);
+        border-radius: var(--radius);
+        margin-bottom: 32px;
+      }
+
+      .contribute h3 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+      }
+
+      .contribute p {
+        color: var(--muted);
+        max-width: 56ch;
+        margin: 0 auto 18px;
+        font-size: 0.95rem;
+      }
+
+      .footer-credit {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      /* Footer */
+      footer {
+        padding: 32px 0 48px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .problem-grid,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        header .btn-ghost {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-bg">
+      <div class="container">
+        <header>
+          <div class="brand">
+            <img
+              src="./icon.png"
+              alt="Arabic Converter Chrome extension logo"
+              width="44"
+              height="44"
+            />
+            <span>Arabic Converter</span>
+          </div>
+          <a
+            class="btn btn-primary"
+            href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Add to Chrome
+          </a>
+        </header>
+
+        <section class="hero">
+          <div>
+            <span class="badge">Chrome Extension · Free</span>
+            <h1>
+              <span class="sr-only">Arabic Converter: </span>
+              Type in Latin.<br />Get Arabic instantly.
+            </h1>
+            <p class="lead">
+              Arabic Converter turns Arabizi and Latin phrases into proper
+              Arabic script, whether Tunisian dialect or Modern Standard Arabic
+              (Fusha), right from your browser toolbar.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="btn btn-primary"
+                href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Install Extension
+              </a>
+              <a class="btn btn-ghost" href="#demo">Watch demo</a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="label">Live example</div>
+            <div class="latin">chneya 7alek?</div>
+            <div class="arabic">شنية حالك؟</div>
+            <div class="modes">
+              <span class="mode-pill active">Tunisian</span>
+              <span class="mode-pill">Fusha → كيف حالك؟</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="problem">
+          <div class="section-title">
+            <h2>The problem it solves</h2>
+            <p>
+              Writing Arabic should not depend on having the right keyboard
+              layout, or slowing down to hunt for Arabic letters.
+            </p>
+          </div>
+
+          <div class="problem-grid">
+            <div class="card">
+              <div class="icon">⌨️</div>
+              <h3>No Arabic keyboard?</h3>
+              <p>
+                You want to write in <strong>Fusha</strong> or
+                <strong>Tunisian dialect</strong> but only have a Latin keyboard.
+                Type naturally in Roman letters and get correct Arabic script in
+                seconds.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="icon">⚡</div>
+              <h3>Prefer Latin / Arabizi?</h3>
+              <p>
+                You <em>can</em> use an Arabic keyboard, but Arabizi is faster
+                for you: <code>3aslema</code>, <code>7alek</code>,
+                <code>9rib</code>. Convert to polished Arabic without
+                retyping every word.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="icon">🌐</div>
+              <h3>Need it while you work?</h3>
+              <p>
+                Messages, posts, emails, notes. Open the extension popup,
+                paste or type, copy the result, and keep going. No tab switching
+                or separate app required.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="demo">
+          <div class="section-title">
+            <h2>See it in action</h2>
+            <p>
+              Watch how fast you can go from Latin input to Arabic output with
+              Fusha or Tunisian mode.
+            </p>
+          </div>
+
+          <div class="demo">
+            <div class="video-wrap" id="video-wrap">
+              <!-- Option 1: local demo video — drop demo.mp4 into this folder -->
+              <video id="demo-video" controls playsinline poster="">
+                <source src="./demo.mp4" type="video/mp4" />
+              </video>
+
+              <!-- Option 2: YouTube embed — set data-youtube-id on the wrap element -->
+              <iframe
+                id="demo-youtube"
+                title="Arabic Converter demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                hidden
+              ></iframe>
+
+              <div class="video-placeholder" id="video-placeholder">
+                <div class="play">▶</div>
+                <p>
+                  Demo video coming soon.<br />
+                  Add <code>demo.mp4</code> to this folder, or set a YouTube ID
+                  in <code>index.html</code>.
+                </p>
+              </div>
+            </div>
+            <p class="demo-note">
+              Replace the placeholder by adding <code>demo.mp4</code> next to
+              this file before deploying to Netlify.
+            </p>
+          </div>
+        </section>
+
+        <section id="features">
+          <div class="section-title">
+            <h2>What you get</h2>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature">
+              <span class="check">✓</span>
+              <div>
+                <h4>Fusha &amp; Tunisian modes</h4>
+                <p>
+                  Switch between Modern Standard Arabic and Tunisian Arabic
+                  script with one tap.
+                </p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="check">✓</span>
+              <div>
+                <h4>Smart Arabizi mapping</h4>
+                <p>
+                  Understands number substitutions like 3 → ع, 7 → ح, 9 → ق, and
+                  more.
+                </p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="check">✓</span>
+              <div>
+                <h4>English &amp; Arabic UI</h4>
+                <p>Full bilingual interface with RTL support.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="check">✓</span>
+              <div>
+                <h4>Copy, history &amp; bookmarks</h4>
+                <p>
+                  Copy output instantly, revisit recent conversions, and save
+                  favorites with bookmarks.
+                </p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="check">✓</span>
+              <div>
+                <h4>Powered by Google Gemini</h4>
+                <p>
+                  Accurate AI conversion using your own free Gemini API key,
+                  stored locally in your browser.
+                </p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="check">✓</span>
+              <div>
+                <h4>Private by design</h4>
+                <p>
+                  Your API key and history stay on your device. Text is sent
+                  only to Google Gemini for conversion.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="how">
+          <div class="section-title">
+            <h2>How it works</h2>
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <h4>Install the extension</h4>
+              <p>
+                Add Arabic Converter from the Chrome Web Store and pin it to your
+                toolbar.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <h4>Add your Gemini key</h4>
+              <p>
+                Open settings, paste a free key from Google AI Studio, and save.
+                One-time setup.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <h4>Type, convert, copy</h4>
+              <p>
+                Write in Latin, choose Fusha or Tunisian, hit Convert, and paste
+                the Arabic result anywhere.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contribute" class="contribute">
+          <h3>Open for contributions and new ideas</h3>
+          <p>
+            Arabic Converter is an open project. We welcome bug reports, feature
+            suggestions, translations, and pull requests from the community.
+          </p>
+          <a
+            class="btn btn-ghost"
+            href="https://github.com/Abdelkaderbzz/arabic-converter-extension"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on GitHub
+          </a>
+        </section>
+
+        <div class="cta">
+          <h2>Start writing Arabic your way</h2>
+          <p>
+            Whether you lack an Arabic keyboard or simply type faster in Latin,
+            Arabic Converter gives you a quick path to Fusha or Tunisian Arabic
+            script.
+          </p>
+          <a
+            class="btn btn-primary"
+            href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get the Chrome Extension
+          </a>
+        </div>
+
+        <footer>
+          <div class="footer-credit">
+            <span>© 2026 Arabic Converter</span>
+            <span>
+              Created by
+              <a href="https://abdelkader.pro/" target="_blank" rel="noopener noreferrer"
+                >abdelkaderbzz</a
+              >
+            </span>
+          </div>
+          <div class="footer-links">
+            <a
+              href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Chrome Web Store</a
+            >
+            <a
+              href="https://github.com/Abdelkaderbzz/arabic-converter-extension"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+            <a href="mailto:abdelkader.bouzomita@gmail.com">Contact</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const YOUTUBE_ID = "";
+        const wrap = document.getElementById("video-wrap");
+        const video = document.getElementById("demo-video");
+        const youtube = document.getElementById("demo-youtube");
+        const placeholder = document.getElementById("video-placeholder");
+
+        if (YOUTUBE_ID) {
+          youtube.src =
+            "https://www.youtube.com/embed/" +
+            YOUTUBE_ID +
+            "?rel=0&modestbranding=1";
+          youtube.hidden = false;
+          video.hidden = true;
+          placeholder.classList.add("hidden");
+          return;
+        }
+
+        video.addEventListener("loadeddata", function () {
+          placeholder.classList.add("hidden");
+        });
+
+        video.addEventListener("error", function () {
+          video.hidden = true;
+          placeholder.classList.remove("hidden");
+        });
+
+        if (video.readyState >= 2) {
+          placeholder.classList.add("hidden");
+        }
+      })();
+    </script>
+  </body>
+</html>

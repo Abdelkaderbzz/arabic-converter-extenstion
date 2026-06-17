@@ -22,7 +22,7 @@ export function Footer() {
           asChild
         >
           <a
-            href="https://github.com/Abdelkaderbzz/arabic-converter-extenstion"
+            href="https://github.com/Abdelkaderbzz/arabic-converter-extension"
             target="_blank"
             rel="noopener noreferrer"
           >
