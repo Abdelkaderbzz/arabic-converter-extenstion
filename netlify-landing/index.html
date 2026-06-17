@@ -112,6 +112,15 @@
             }
           },
           {
+            "@type": "VideoObject",
+            "@id": "https://convert2arabic.netlify.app/#demo-video",
+            "name": "Arabic Converter Chrome Extension Demo",
+            "description": "Watch how to install Arabic Converter and convert Arabizi to Tunisian Arabic or Fusha from your browser toolbar.",
+            "thumbnailUrl": "https://img.youtube.com/vi/lyvKqvKfXUo/hqdefault.jpg",
+            "contentUrl": "https://www.youtube.com/watch?v=lyvKqvKfXUo",
+            "embedUrl": "https://www.youtube.com/embed/lyvKqvKfXUo"
+          },
+          {
             "@type": "Person",
             "@id": "https://convert2arabic.netlify.app/#person",
             "name": "abdelkaderbzz",
@@ -777,32 +786,22 @@
 
           <div class="demo">
             <div class="video-wrap" id="video-wrap">
-              <!-- Option 1: local demo video — drop demo.mp4 into this folder -->
-              <video id="demo-video" controls playsinline poster="">
-                <source src="./demo.mp4" type="video/mp4" />
-              </video>
-
-              <!-- Option 2: YouTube embed — set data-youtube-id on the wrap element -->
               <iframe
                 id="demo-youtube"
                 title="Arabic Converter demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                src="https://www.youtube.com/embed/lyvKqvKfXUo?rel=0&modestbranding=1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
-                hidden
               ></iframe>
-
-              <div class="video-placeholder" id="video-placeholder">
-                <div class="play">▶</div>
-                <p>
-                  Demo video coming soon.<br />
-                  Add <code>demo.mp4</code> to this folder, or set a YouTube ID
-                  in <code>index.html</code>.
-                </p>
-              </div>
             </div>
             <p class="demo-note">
-              Replace the placeholder by adding <code>demo.mp4</code> next to
-              this file before deploying to Netlify.
+              <a
+                href="https://www.youtube.com/watch?v=lyvKqvKfXUo"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch on YouTube</a
+              >
+              if the player does not load.
             </p>
           </div>
         </section>
@@ -968,38 +967,5 @@
       </div>
     </div>
 
-    <script>
-      (function () {
-        const YOUTUBE_ID = "";
-        const wrap = document.getElementById("video-wrap");
-        const video = document.getElementById("demo-video");
-        const youtube = document.getElementById("demo-youtube");
-        const placeholder = document.getElementById("video-placeholder");
-
-        if (YOUTUBE_ID) {
-          youtube.src =
-            "https://www.youtube.com/embed/" +
-            YOUTUBE_ID +
-            "?rel=0&modestbranding=1";
-          youtube.hidden = false;
-          video.hidden = true;
-          placeholder.classList.add("hidden");
-          return;
-        }
-
-        video.addEventListener("loadeddata", function () {
-          placeholder.classList.add("hidden");
-        });
-
-        video.addEventListener("error", function () {
-          video.hidden = true;
-          placeholder.classList.remove("hidden");
-        });
-
-        if (video.readyState >= 2) {
-          placeholder.classList.add("hidden");
-        }
-      })();
-    </script>
   </body>
 </html>
