@@ -1,4 +1,4 @@
-# Tunisian Arabic Converter 🇹🇳
+# arabic converter
 
 A modern web application that converts Tunisian Arabic text between Latin and Arabic scripts, with support for both Tunisian dialect and Modern Standard Arabic (Fusha).
 
