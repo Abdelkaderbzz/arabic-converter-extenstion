@@ -28,14 +28,14 @@ A modern web application that converts Tunisian Arabic text between Latin and Ar
 - 🔷 TypeScript
 - 🎨 Tailwind CSS
 - 🧩 Shadcn/UI
-- 🤖 Claude AI API
+- 🤖 Google Gemini API
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js 18+
-- An Anthropic API key
+- A free [Google AI Studio](https://aistudio.google.com/apikey) API key
 
 ### Installation
 
@@ -58,10 +58,10 @@ npm install
 cp .env.example
 ```
 
-Add your Anthropic API key to `.env`:
+Add your Gemini API key to `.env`:
 
 ```env
-ANTHROPIC_API_KEY=your_api_key_here
+GOOGLE_GENERATIVE_AI_API_KEY=your_api_key_here
 ```
 
 4. Start the development server:
@@ -105,5 +105,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - Built with ❤️ for the Tunisian community
-- Powered by [Anthropic's Claude AI](https://www.anthropic.com/)
+- Powered by [Google Gemini](https://ai.google.dev/)
 - UI components from [shadcn/ui](https://ui.shadcn.com/)
