@@ -30,12 +30,8 @@ export default function Home() {
               <Languages className="h-3.5 w-3.5" />
               <span>3 → ع · 7 → ح · 9 → ق</span>
             </div>
-            <h1
-              className={`text-3xl sm:text-4xl font-bold tracking-tight text-foreground ${
-                isRtl ? "font-[family-name:var(--font-arabic)]" : ""
-              }`}
-            >
-              {t.title}
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+              Arabizzi
             </h1>
             <p
               className={`mt-2 text-muted-foreground text-sm sm:text-base max-w-md leading-relaxed ${
