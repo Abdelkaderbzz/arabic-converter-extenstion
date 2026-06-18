@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Heart } from "lucide-react";
+import { Github, Globe, Heart } from "lucide-react";
 import { Button } from "./ui/button";
 import { useLanguage } from "@/contexts/language-context";
 
@@ -22,7 +22,23 @@ export function Footer() {
           asChild
         >
           <a
-            href="https://github.com/Abdelkaderbzz/arabic-converter-extension"
+            href="https://arabizzi.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Globe className="h-4 w-4" />
+            arabizzi.com
+          </a>
+        </Button>
+        <span className="text-border">·</span>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="gap-2 rounded-full text-muted-foreground hover:text-foreground"
+          asChild
+        >
+          <a
+            href="https://github.com/Abdelkaderbzz/arabizzi"
             target="_blank"
             rel="noopener noreferrer"
           >

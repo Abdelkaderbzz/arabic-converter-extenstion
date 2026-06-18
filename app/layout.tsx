@@ -37,8 +37,16 @@ const thmanyahSans = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://arabizzi.com"),
   title: "Arabizzi",
   description: "Convert Tunisian Arabic text between Latin and Arabic scripts",
+  openGraph: {
+    title: "Arabizzi",
+    description: "Convert Tunisian Arabic text between Latin and Arabic scripts",
+    url: "https://arabizzi.com/",
+    siteName: "Arabizzi",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

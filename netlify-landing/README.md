@@ -2,6 +2,8 @@
 
 Static landing page for the Chrome extension. Deploy the **`netlify-landing/`** folder to Netlify.
 
+**Live site:** [arabizzi.com](https://arabizzi.com/) · **Repository:** [github.com/Abdelkaderbzz/arabizzi](https://github.com/Abdelkaderbzz/arabizzi)
+
 ## Deploy to Netlify
 
 ### Option A — Drag & drop

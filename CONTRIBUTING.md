@@ -11,12 +11,12 @@ Thank you for your interest in contributing. This project includes a **Next.js w
 
 ## Getting started
 
-1. Fork the repository: [arabic-converter-extension](https://github.com/Abdelkaderbzz/arabic-converter-extension)
+1. Fork the repository: [arabizzi](https://github.com/Abdelkaderbzz/arabizzi)
 2. Clone your fork and create a branch:
 
 ```bash
-git clone https://github.com/<your-username>/arabic-converter-extension.git
-cd arabic-converter-extension
+git clone https://github.com/<your-username>/arabizzi.git
+cd arabizzi
 git checkout -b feature/my-change
 ```
 
@@ -49,7 +49,7 @@ pnpm build
 Package for the Web Store:
 
 ```bash
-cd extension && zip -r ../arabic-converter-extension.zip . -x "icons/generate.js"
+cd extension && zip -r ../arabizzi-extension.zip . -x "icons/generate.js"
 ```
 
 ## Pull request guidelines
@@ -78,3 +78,5 @@ cd extension && zip -r ../arabic-converter-extension.zip . -x "icons/generate.js
 ## Questions
 
 If you are unsure whether an idea fits the project, open a feature request issue first. That helps align on scope before you invest time in a PR.
+
+**Website:** [arabizzi.com](https://arabizzi.com/) · **Repository:** [github.com/Abdelkaderbzz/arabizzi](https://github.com/Abdelkaderbzz/arabizzi)

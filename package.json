@@ -1,7 +1,12 @@
 {
-  "name": "converter",
+  "name": "arabizzi",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://arabizzi.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Abdelkaderbzz/arabizzi.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -4,7 +4,7 @@ A Manifest V3 Chrome extension that converts Tunisian Arabic (Latin / Arabizi) i
 
 It runs entirely in the browser — no backend required. Each user supplies their own free Gemini API key, stored only in `chrome.storage.local`.
 
-Part of the [Arabizzi](https://github.com/Abdelkaderbzz/arabic-converter-extension) project.
+Part of the [Arabizzi](https://github.com/Abdelkaderbzz/arabizzi) project.
 
 **Website:** [arabizzi.com](https://arabizzi.com/)
 
@@ -45,10 +45,10 @@ extension/
 ## Package for the Chrome Web Store
 
 ```bash
-cd extension && zip -r ../arabic-converter-extension.zip . -x "icons/generate.js"
+cd extension && zip -r ../arabizzi-extension.zip . -x "icons/generate.js"
 ```
 
-Upload `arabic-converter-extension.zip` at the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole).
+Upload `arabizzi-extension.zip` at the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole).
 
 ### Listing checklist
 
