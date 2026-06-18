@@ -1,12 +1,12 @@
-# Arabic Converter — Chrome Extension
+# Arabizzi — Chrome Extension
 
 A Manifest V3 Chrome extension that converts Tunisian Arabic (Latin / Arabizi) into **Arabic script** or **Modern Standard Arabic (Fusha)** using Google Gemini.
 
 It runs entirely in the browser — no backend required. Each user supplies their own free Gemini API key, stored only in `chrome.storage.local`.
 
-Part of the [Arabic Converter](https://github.com/Abdelkaderbzz/arabic-converter-extension) project.
+Part of the [Arabizzi](https://github.com/Abdelkaderbzz/arabic-converter-extension) project.
 
-**Website:** [convert2arabic.netlify.app](https://convert2arabic.netlify.app/)
+**Website:** [arabizzi.com](https://arabizzi.com/)
 
 ## Features
 
@@ -52,7 +52,7 @@ Upload `arabic-converter-extension.zip` at the [Chrome Web Store Developer Dashb
 
 ### Listing checklist
 
-- **Name:** Arabic Converter
+- **Name:** Arabizzi
 - **Category:** Productivity
 - **Icons:** 16×16, 48×48, and 128×128 PNGs (included in `icons/`)
 - **Screenshots:** 1280×800 or 640×400

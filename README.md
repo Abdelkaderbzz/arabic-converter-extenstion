@@ -1,8 +1,8 @@
-# Arabic Converter
+# Arabizzi
 
 Convert Tunisian Arabic written in Latin script (Arabizi) into **Arabic script** or **Modern Standard Arabic (Fusha)**, powered by Google Gemini.
 
-**Website:** [convert2arabic.netlify.app](https://convert2arabic.netlify.app/) · **Chrome extension:** [Web Store](https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm)
+**Website:** [arabizzi.com](https://arabizzi.com/) · **Chrome extension:** [Web Store](https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm)
 
 This repository includes a **Next.js web app** and a **Chrome extension** that share the same conversion logic and bilingual UI.
 

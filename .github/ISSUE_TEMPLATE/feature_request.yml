@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Have an idea to improve Arabic Converter? We'd love to hear it.
+        Have an idea to improve Arabizzi? We'd love to hear it.
 
   - type: dropdown
     id: area

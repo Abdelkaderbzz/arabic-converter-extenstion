@@ -1,4 +1,4 @@
-# Contributing to Arabic Converter
+# Contributing to Arabizzi
 
 Thank you for your interest in contributing. This project includes a **Next.js web app**, a **Chrome extension**, and static pages for privacy policy and marketing.
 

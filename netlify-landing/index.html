@@ -6,7 +6,7 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <!-- Primary SEO -->
-    <title>Arabic Converter | Chrome Extension for Arabizi to Arabic &amp; Fusha</title>
+    <title>Arabizzi | Chrome Extension for Arabizi to Arabic &amp; Fusha</title>
     <meta
       name="description"
       content="Free Chrome extension that converts Arabizi and Latin text into Tunisian Arabic script or Modern Standard Arabic (Fusha). No Arabic keyboard needed. Fast, bilingual, powered by Gemini."
@@ -19,35 +19,35 @@
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="googlebot" content="index, follow" />
     <meta name="theme-color" content="#25876d" />
-    <link rel="canonical" href="https://convert2arabic.netlify.app/" />
+    <link rel="canonical" href="https://arabizzi.com/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Arabic Converter" />
+    <meta property="og:site_name" content="Arabizzi" />
     <meta
       property="og:title"
-      content="Arabic Converter | Chrome Extension for Arabizi to Arabic &amp; Fusha"
+      content="Arabizzi | Chrome Extension for Arabizi to Arabic &amp; Fusha"
     />
     <meta
       property="og:description"
       content="Type in Latin, get Arabic instantly. Convert Arabizi to Tunisian Arabic script or Fusha from your browser toolbar."
     />
-    <meta property="og:url" content="https://convert2arabic.netlify.app/" />
-    <meta property="og:image" content="https://convert2arabic.netlify.app/icon.png" />
-    <meta property="og:image:alt" content="Arabic Converter Chrome extension icon" />
+    <meta property="og:url" content="https://arabizzi.com/" />
+    <meta property="og:image" content="https://arabizzi.com/icon.png" />
+    <meta property="og:image:alt" content="Arabizzi Chrome extension icon" />
     <meta property="og:image:width" content="128" />
     <meta property="og:image:height" content="128" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Arabic Converter | Chrome Extension" />
+    <meta name="twitter:title" content="Arabizzi | Chrome Extension" />
     <meta
       name="twitter:description"
       content="Convert Arabizi and Latin phrases to Tunisian Arabic or Fusha in one click. Free Chrome extension."
     />
-    <meta name="twitter:image" content="https://convert2arabic.netlify.app/icon.png" />
-    <meta name="twitter:image:alt" content="Arabic Converter Chrome extension icon" />
+    <meta name="twitter:image" content="https://arabizzi.com/icon.png" />
+    <meta name="twitter:image:alt" content="Arabizzi Chrome extension icon" />
 
     <!-- Icons -->
     <link rel="icon" href="./icon.png" type="image/png" />
@@ -60,33 +60,33 @@
         "@graph": [
           {
             "@type": "WebSite",
-            "@id": "https://convert2arabic.netlify.app/#website",
-            "url": "https://convert2arabic.netlify.app/",
-            "name": "Arabic Converter",
+            "@id": "https://arabizzi.com/#website",
+            "url": "https://arabizzi.com/",
+            "name": "Arabizzi",
             "description": "Chrome extension landing page for converting Arabizi and Latin text to Tunisian Arabic or Fusha.",
             "inLanguage": "en",
             "publisher": {
-              "@id": "https://convert2arabic.netlify.app/#person"
+              "@id": "https://arabizzi.com/#person"
             }
           },
           {
             "@type": "WebPage",
-            "@id": "https://convert2arabic.netlify.app/#webpage",
-            "url": "https://convert2arabic.netlify.app/",
-            "name": "Arabic Converter | Chrome Extension",
+            "@id": "https://arabizzi.com/#webpage",
+            "url": "https://arabizzi.com/",
+            "name": "Arabizzi | Chrome Extension",
             "description": "Free Chrome extension that converts Arabizi and Latin text into Tunisian Arabic script or Modern Standard Arabic (Fusha).",
             "isPartOf": {
-              "@id": "https://convert2arabic.netlify.app/#website"
+              "@id": "https://arabizzi.com/#website"
             },
             "about": {
-              "@id": "https://convert2arabic.netlify.app/#software"
+              "@id": "https://arabizzi.com/#software"
             },
             "inLanguage": "en"
           },
           {
             "@type": "SoftwareApplication",
-            "@id": "https://convert2arabic.netlify.app/#software",
-            "name": "Arabic Converter",
+            "@id": "https://arabizzi.com/#software",
+            "name": "Arabizzi",
             "applicationCategory": "BrowserApplication",
             "applicationSubCategory": "Productivity",
             "operatingSystem": "Chrome",
@@ -109,21 +109,21 @@
               "Copy output, conversion history, and saved bookmarks"
             ],
             "author": {
-              "@id": "https://convert2arabic.netlify.app/#person"
+              "@id": "https://arabizzi.com/#person"
             }
           },
           {
             "@type": "VideoObject",
-            "@id": "https://convert2arabic.netlify.app/#demo-video",
-            "name": "Arabic Converter Chrome Extension Demo",
-            "description": "Watch how to install Arabic Converter and convert Arabizi to Tunisian Arabic or Fusha from your browser toolbar.",
+            "@id": "https://arabizzi.com/#demo-video",
+            "name": "Arabizzi Chrome Extension Demo",
+            "description": "Watch how to install Arabizzi and convert Arabizi to Tunisian Arabic or Fusha from your browser toolbar.",
             "thumbnailUrl": "https://img.youtube.com/vi/lyvKqvKfXUo/hqdefault.jpg",
             "contentUrl": "https://www.youtube.com/watch?v=lyvKqvKfXUo",
             "embedUrl": "https://www.youtube-nocookie.com/embed/lyvKqvKfXUo"
           },
           {
             "@type": "Person",
-            "@id": "https://convert2arabic.netlify.app/#person",
+            "@id": "https://arabizzi.com/#person",
             "name": "abdelkaderbzz",
             "url": "https://abdelkader.pro/"
           }
@@ -333,6 +333,110 @@
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      /* Share */
+      .share-bar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .share-label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      .share-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .share-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        color: var(--foreground);
+        font-size: 0.85rem;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      }
+
+      .share-btn:hover {
+        background: var(--primary-soft);
+        border-color: rgba(37, 135, 109, 0.35);
+        transform: translateY(-1px);
+        text-decoration: none;
+      }
+
+      .share-btn.copied {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+      }
+
+      .share-section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: calc(var(--radius) + 4px);
+        padding: 28px;
+        text-align: center;
+        margin-bottom: 48px;
+        box-shadow: 0 16px 40px rgba(29, 35, 41, 0.06);
+      }
+
+      .share-section h3 {
+        font-size: 1.35rem;
+        margin-bottom: 10px;
+      }
+
+      .share-section p {
+        color: var(--muted);
+        max-width: 52ch;
+        margin: 0 auto 20px;
+      }
+
+      .share-buttons-lg {
+        justify-content: center;
+      }
+
+      .share-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        color: var(--foreground);
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+
+      .share-pill:hover {
+        background: var(--primary-soft);
+        border-color: rgba(37, 135, 109, 0.35);
+        text-decoration: none;
+      }
+
+      .share-pill.copied {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
       }
 
       .hero-card {
@@ -680,11 +784,11 @@
           <div class="brand">
             <img
               src="./icon.png"
-              alt="Arabic Converter Chrome extension logo"
+              alt="Arabizzi Chrome extension logo"
               width="44"
               height="44"
             />
-            <span>Arabic Converter</span>
+            <span>Arabizzi</span>
           </div>
           <a
             class="btn btn-primary"
@@ -700,13 +804,13 @@
           <div>
             <span class="badge">Chrome Extension · Free</span>
             <h1>
-              <span class="sr-only">Arabic Converter: </span>
+              <span class="sr-only">Arabizzi: </span>
               Type in Latin.<br />Get Arabic instantly.
             </h1>
             <p class="lead">
-              Arabic Converter turns Arabizi and Latin phrases into proper
-              Arabic script, whether Tunisian dialect or Modern Standard Arabic
-              (Fusha), right from your browser toolbar.
+              Arabizzi turns Arabizi and Latin phrases into proper Arabic
+              script, whether Tunisian dialect or Modern Standard Arabic (Fusha),
+              right from your browser toolbar.
             </p>
             <div class="hero-actions">
               <a
@@ -718,6 +822,53 @@
                 Install Extension
               </a>
               <a class="btn btn-ghost" href="#demo">Watch demo</a>
+            </div>
+            <div class="share-bar" aria-label="Share Arabizzi">
+              <span class="share-label">Share</span>
+              <div class="share-buttons">
+                <a
+                  class="share-btn"
+                  id="share-x"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Share on X"
+                  >𝕏</a
+                >
+                <a
+                  class="share-btn"
+                  id="share-facebook"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Share on Facebook"
+                  >f</a
+                >
+                <a
+                  class="share-btn"
+                  id="share-whatsapp"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Share on WhatsApp"
+                  >WA</a
+                >
+                <a
+                  class="share-btn"
+                  id="share-linkedin"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Share on LinkedIn"
+                  >in</a
+                >
+                <button class="share-btn" id="share-copy" type="button" title="Copy link">
+                  ⧉
+                </button>
+                <button class="share-btn" id="share-native" type="button" hidden title="Share">
+                  ↗
+                </button>
+              </div>
             </div>
           </div>
 
@@ -789,8 +940,8 @@
             <div class="video-wrap" id="video-wrap">
               <iframe
                 id="demo-youtube"
-                title="Arabic Converter demo"
-                src="https://www.youtube-nocookie.com/embed/lyvKqvKfXUo?rel=0&modestbranding=1&origin=https://convert2arabic.netlify.app"
+                title="Arabizzi demo"
+                src="https://www.youtube-nocookie.com/embed/lyvKqvKfXUo?rel=0&modestbranding=1&origin=https://arabizzi.com"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
@@ -884,7 +1035,7 @@
               <div class="step-num">1</div>
               <h4>Install the extension</h4>
               <p>
-                Add Arabic Converter from the Chrome Web Store and pin it to your
+                Add Arabizzi from the Chrome Web Store and pin it to your
                 toolbar.
               </p>
             </div>
@@ -910,7 +1061,7 @@
         <section id="contribute" class="contribute">
           <h3>Open for contributions and new ideas</h3>
           <p>
-            Arabic Converter is an open project. We welcome bug reports, feature
+            Arabizzi is an open project. We welcome bug reports, feature
             suggestions, translations, and pull requests from the community.
           </p>
           <a
@@ -923,11 +1074,49 @@
           </a>
         </section>
 
+        <section id="share" class="share-section">
+          <h3>Love Arabizzi? Share it</h3>
+          <p>
+            Help friends and colleagues discover the easiest way to write Arabic
+            from Latin — one click to share on social media.
+          </p>
+          <div class="share-buttons share-buttons-lg">
+            <a class="share-pill" id="share-x-2" href="#" target="_blank" rel="noopener noreferrer"
+              >Share on X</a
+            >
+            <a
+              class="share-pill"
+              id="share-facebook-2"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Facebook</a
+            >
+            <a
+              class="share-pill"
+              id="share-whatsapp-2"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              >WhatsApp</a
+            >
+            <a
+              class="share-pill"
+              id="share-linkedin-2"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+            <button class="share-pill" id="share-copy-2" type="button">Copy link</button>
+          </div>
+        </section>
+
         <div class="cta">
           <h2>Start writing Arabic your way</h2>
           <p>
             Whether you lack an Arabic keyboard or simply type faster in Latin,
-            Arabic Converter gives you a quick path to Fusha or Tunisian Arabic
+            Arabizzi gives you a quick path to Fusha or Tunisian Arabic
             script.
           </p>
           <a
@@ -942,7 +1131,7 @@
 
         <footer>
           <div class="footer-credit">
-            <span>© 2026 Arabic Converter</span>
+            <span>© 2026 Arabizzi</span>
             <span>
               Created by
               <a href="https://abdelkader.pro/" target="_blank" rel="noopener noreferrer"
@@ -957,6 +1146,9 @@
               rel="noopener noreferrer"
               >Chrome Web Store</a
             >
+            <a href="https://arabizzi.com/" target="_blank" rel="noopener noreferrer"
+              >arabizzi.com</a
+            >
             <a
               href="https://github.com/Abdelkaderbzz/arabic-converter-extension"
               target="_blank"
@@ -969,5 +1161,68 @@
       </div>
     </div>
 
+    <script>
+      (function () {
+        const SITE_URL = "https://arabizzi.com/";
+        const SHARE_TITLE = "Arabizzi — Type Arabizi, Get Arabic Instantly";
+        const SHARE_TEXT =
+          "Convert Arabizi to Arabic script or Fusha with Arabizzi, a free Chrome extension.";
+
+        const encodedUrl = encodeURIComponent(SITE_URL);
+        const encodedText = encodeURIComponent(SHARE_TEXT + " " + SITE_URL);
+        const encodedTitle = encodeURIComponent(SHARE_TITLE);
+
+        const links = {
+          "share-x": "https://twitter.com/intent/tweet?text=" + encodedText,
+          "share-x-2": "https://twitter.com/intent/tweet?text=" + encodedText,
+          "share-facebook":
+            "https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl,
+          "share-facebook-2":
+            "https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl,
+          "share-whatsapp": "https://wa.me/?text=" + encodedText,
+          "share-whatsapp-2": "https://wa.me/?text=" + encodedText,
+          "share-linkedin":
+            "https://www.linkedin.com/sharing/share-offsite/?url=" + encodedUrl,
+          "share-linkedin-2":
+            "https://www.linkedin.com/sharing/share-offsite/?url=" + encodedUrl,
+        };
+
+        Object.keys(links).forEach(function (id) {
+          const el = document.getElementById(id);
+          if (el) el.href = links[id];
+        });
+
+        function copyLink(button) {
+          navigator.clipboard.writeText(SITE_URL).then(function () {
+            const original = button.textContent;
+            button.classList.add("copied");
+            button.textContent = button.classList.contains("share-btn")
+              ? "✓"
+              : "Copied!";
+            setTimeout(function () {
+              button.classList.remove("copied");
+              button.textContent = original;
+            }, 1800);
+          });
+        }
+
+        ["share-copy", "share-copy-2"].forEach(function (id) {
+          const btn = document.getElementById(id);
+          if (btn) btn.addEventListener("click", function () { copyLink(btn); });
+        });
+
+        const nativeBtn = document.getElementById("share-native");
+        if (nativeBtn && navigator.share) {
+          nativeBtn.hidden = false;
+          nativeBtn.addEventListener("click", function () {
+            navigator.share({
+              title: SHARE_TITLE,
+              text: SHARE_TEXT,
+              url: SITE_URL,
+            });
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

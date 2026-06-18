@@ -37,7 +37,7 @@ const thmanyahSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Arabic Converter",
+  title: "Arabizzi",
   description: "Convert Tunisian Arabic text between Latin and Arabic scripts",
 };
 

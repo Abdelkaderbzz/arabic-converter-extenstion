@@ -1,5 +1,5 @@
 export const en = {
-  title: "Arabic Converter",
+  title: "Arabizzi",
   description: "Convert Tunisian Arabic text between Latin and Arabic scripts",
   latinInput: {
     label: "Tunisian Arabic (Latin script)",

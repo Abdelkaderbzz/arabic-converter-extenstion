@@ -11,7 +11,7 @@ const STORAGE = {
 const I18N = {
   en: {
     dir: "ltr",
-    title: "Arabic Converter",
+    title: "Arabizzi",
     description: "Convert Tunisian Arabic text between Latin and Arabic scripts",
     inputLabel: "Tunisian Arabic (Latin script)",
     inputPlaceholder:
@@ -49,7 +49,7 @@ const I18N = {
   },
   ar: {
     dir: "rtl",
-    title: "محول العربية",
+    title: "عربيزي",
     description: "حوّل النص العامية بين الحروف اللاتينية والعربية",
     inputLabel: "العربية العامية (حروف لاتينية)",
     inputPlaceholder:
