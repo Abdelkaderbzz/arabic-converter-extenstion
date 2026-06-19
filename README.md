@@ -12,7 +12,7 @@ This repository includes a **Next.js web app** and a **Chrome extension** that s
 | --- | --- |
 | `app/`, `components/` | Next.js web application |
 | `extension/` | Chrome extension (Manifest V3, self-contained) |
-| `netlify-privacy/` | Privacy policy page for Chrome Web Store listing |
+| `netlify-landing/` | Marketing site, releases, and privacy policy |
 
 ## Features
 
@@ -121,14 +121,14 @@ pnpm lint     # run linter
 ├── contexts/            # Language and history state
 ├── extension/           # Chrome extension source
 ├── lib/                 # Conversion and usage helpers
-├── netlify-privacy/     # Privacy policy (Web Store)
+├── netlify-landing/     # Landing, releases, privacy (Web Store)
 ├── translations/        # English and Arabic strings
 └── types/               # TypeScript declarations
 ```
 
 ## Privacy
 
-The Chrome extension stores the API key and preferences locally. Conversion text is sent only to Google's Gemini API. The privacy policy for the Web Store listing lives in `netlify-privacy/`.
+The Chrome extension stores the API key and preferences locally. Conversion text is sent only to Google's Gemini API. The privacy policy lives at [arabizzi.com/privacy.html](https://arabizzi.com/privacy.html) (`netlify-landing/privacy.html`).
 
 ## Contributing
 

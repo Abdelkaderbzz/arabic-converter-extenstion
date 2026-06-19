@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <title>Privacy Policy | Arabizzi Chrome Extension</title>
+    <meta
+      name="description"
+      content="Privacy policy for the Arabizzi Chrome extension — how your text, API key, and local data are handled."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#25876d" />
+    <link rel="canonical" href="https://arabizzi.com/privacy.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Arabizzi" />
+    <meta property="og:title" content="Privacy Policy | Arabizzi" />
+    <meta
+      property="og:description"
+      content="Privacy policy for the Arabizzi Chrome extension."
+    />
+    <meta property="og:url" content="https://arabizzi.com/privacy.html" />
+    <meta property="og:image" content="https://arabizzi.com/icon.png" />
+
+    <link rel="icon" href="./icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./icon.png" />
+
+    <style>
+      @font-face {
+        font-family: "Thmanyah Sans";
+        src: url("./thmanyah-font/thmanyahsans-Light.woff2") format("woff2");
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Thmanyah Sans";
+        src: url("./thmanyah-font/thmanyahsans-Regular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Thmanyah Sans";
+        src: url("./thmanyah-font/thmanyahsans-Bold.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --bg: #f7f4ee;
+        --card: #ffffff;
+        --foreground: #1d2329;
+        --muted: #6b7280;
+        --primary: #25876d;
+        --primary-dark: #1d6b57;
+        --border: #e4e0d6;
+        --radius: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Thmanyah Sans", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--foreground);
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .page-bg {
+        background-color: var(--bg);
+        background-image:
+          radial-gradient(
+            ellipse 80% 50% at 50% -20%,
+            rgba(37, 135, 109, 0.1),
+            transparent
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 100% 100%,
+            rgba(230, 120, 60, 0.07),
+            transparent
+          );
+        min-height: 100vh;
+      }
+
+      .container {
+        width: min(760px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .brand:hover {
+        text-decoration: none;
+      }
+
+      .brand img {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(37, 135, 109, 0.2);
+      }
+
+      .brand span {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(37, 135, 109, 0.28);
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-dark);
+      }
+
+      main {
+        padding: 12px 0 48px;
+      }
+
+      .policy-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px 28px;
+        box-shadow: 0 4px 24px rgba(29, 35, 41, 0.04);
+      }
+
+      .policy-card h1 {
+        font-size: clamp(1.75rem, 4vw, 2.1rem);
+        line-height: 1.2;
+        margin-bottom: 8px;
+      }
+
+      .policy-meta {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .policy-card p {
+        margin-bottom: 14px;
+      }
+
+      .policy-card h2 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-top: 28px;
+        margin-bottom: 10px;
+      }
+
+      .policy-card h2:first-of-type {
+        margin-top: 0;
+      }
+
+      .policy-card code {
+        font-size: 0.9em;
+        background: rgba(37, 135, 109, 0.08);
+        padding: 2px 6px;
+        border-radius: 6px;
+      }
+
+      footer {
+        padding: 32px 0 48px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .footer-credit {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-bg">
+      <div class="container">
+        <header>
+          <a class="brand" href="./index.html">
+            <img
+              src="./icon.png"
+              alt="Arabizzi Chrome extension logo"
+              width="44"
+              height="44"
+            />
+            <span>Arabizzi</span>
+          </a>
+          <a
+            class="btn btn-primary"
+            href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Add to Chrome
+          </a>
+        </header>
+
+        <main>
+          <article class="policy-card">
+            <h1>Privacy Policy</h1>
+            <p class="policy-meta"><strong>Last updated:</strong> June 16, 2026</p>
+
+            <p>
+              Arabizzi is a Chrome extension that converts colloquial Arabic
+              written in Latin letters (Arabizi) into Arabic script or Modern
+              Standard Arabic (Fusha).
+            </p>
+
+            <h2>Information we handle</h2>
+            <p><strong>1. Text you enter for conversion</strong></p>
+            <p>
+              When you click Convert, the text you type is sent to Google's
+              Generative Language API (Gemini) to produce the converted Arabic
+              text. This is required for the extension to work.
+            </p>
+
+            <p><strong>2. Your Gemini API key</strong></p>
+            <p>
+              You provide your own Google Gemini API key. It is stored only in
+              your browser using Chrome's local storage
+              (<code>chrome.storage.local</code>). We do not receive or store
+              your API key on any server operated by us.
+            </p>
+
+            <p><strong>3. Local preferences and history</strong></p>
+            <p>
+              Language preference, output mode (Fusha or colloquial Arabic),
+              recent conversion history (up to 10 entries), and saved bookmarks
+              are stored locally in your browser. This data is not sent to us.
+            </p>
+
+            <h2>How we use data</h2>
+            <p>
+              Data is used solely to convert text you submit and to remember
+              your settings, recent conversions, and saved items in your
+              browser.
+            </p>
+
+            <h2>Third parties</h2>
+            <p>
+              Conversion text is transmitted to Google
+              (<a
+                href="https://generativelanguage.googleapis.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >generativelanguage.googleapis.com</a
+              >) using your API key, under Google's terms and privacy policy. We
+              do not sell, rent, or share your data with advertisers or other
+              third parties.
+            </p>
+
+            <h2>Data retention</h2>
+            <p>
+              Local data remains in your browser until you clear extension
+              storage or uninstall the extension.
+            </p>
+
+            <h2>Children</h2>
+            <p>This extension is not directed at children under 13.</p>
+
+            <h2>Changes</h2>
+            <p>
+              We may update this policy. The "Last updated" date above will
+              reflect changes.
+            </p>
+
+            <h2>Contact</h2>
+            <p>
+              Website:
+              <a href="https://arabizzi.com/">arabizzi.com</a>
+            </p>
+            <p>
+              Email:
+              <a href="mailto:abdelkader.bouzomita@gmail.com"
+                >abdelkader.bouzomita@gmail.com</a
+              >
+            </p>
+          </article>
+        </main>
+
+        <footer>
+          <div class="footer-credit">
+            <span>© 2026 Arabizzi</span>
+            <span>
+              Created by
+              <a href="https://abdelkader.pro/" target="_blank" rel="noopener noreferrer"
+                >abdelkaderbzz</a
+              >
+            </span>
+          </div>
+          <div class="footer-links">
+            <a href="./index.html">Home</a>
+            <a href="./releases.html">Releases</a>
+            <a href="./privacy.html">Privacy</a>
+            <a
+              href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Chrome Web Store</a
+            >
+            <a href="mailto:abdelkader.bouzomita@gmail.com">Contact</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      window.Fu = window.Fu || {};
+      Fu.access_token = "c73c052759e3602ca716ff469cde44";
+      (function (d) {
+        let s = d.createElement("script");
+        s.async = true;
+        s.src = "https://widget.feeduser.me/widget/v1.js";
+        (d.head || d.body).appendChild(s);
+      })(document);
+    </script>
+  </body>
+</html>

@@ -65,8 +65,7 @@ cd extension && zip -r ../arabizzi-extension.zip . -x "icons/generate.js"
 | --- | --- |
 | `app/`, `components/` | Next.js web application |
 | `extension/` | Chrome extension (Manifest V3) |
-| `netlify-landing/` | Marketing landing page |
-| `netlify-privacy/` | Privacy policy for Web Store |
+| `netlify-landing/` | Marketing landing page, releases, and privacy policy |
 | `translations/` | English and Arabic UI strings |
 
 ## Code style

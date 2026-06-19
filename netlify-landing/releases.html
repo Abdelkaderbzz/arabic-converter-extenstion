@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <title>Releases | Arabizzi Chrome Extension</title>
+    <meta
+      name="description"
+      content="Current version and latest release notes for the Arabizzi Chrome extension — Arabizi to Arabic and Fusha conversion."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#25876d" />
+    <link rel="canonical" href="https://arabizzi.com/releases.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Arabizzi" />
+    <meta property="og:title" content="Releases | Arabizzi Chrome Extension" />
+    <meta
+      property="og:description"
+      content="Current version and latest release notes for the Arabizzi Chrome extension."
+    />
+    <meta property="og:url" content="https://arabizzi.com/releases.html" />
+    <meta property="og:image" content="https://arabizzi.com/icon.png" />
+
+    <link rel="icon" href="./icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./icon.png" />
+
+    <style>
+      @font-face {
+        font-family: "Thmanyah Sans";
+        src: url("./thmanyah-font/thmanyahsans-Light.woff2") format("woff2");
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Thmanyah Sans";
+        src: url("./thmanyah-font/thmanyahsans-Regular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Thmanyah Sans";
+        src: url("./thmanyah-font/thmanyahsans-Medium.woff2") format("woff2");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Thmanyah Sans";
+        src: url("./thmanyah-font/thmanyahsans-Bold.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --bg: #f7f4ee;
+        --card: #ffffff;
+        --foreground: #1d2329;
+        --muted: #6b7280;
+        --primary: #25876d;
+        --primary-dark: #1d6b57;
+        --primary-soft: rgba(37, 135, 109, 0.1);
+        --border: #e4e0d6;
+        --radius: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Thmanyah Sans", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--foreground);
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .page-bg {
+        background-color: var(--bg);
+        background-image:
+          radial-gradient(
+            ellipse 80% 50% at 50% -20%,
+            rgba(37, 135, 109, 0.1),
+            transparent
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 100% 100%,
+            rgba(230, 120, 60, 0.07),
+            transparent
+          );
+        min-height: 100vh;
+      }
+
+      .container {
+        width: min(760px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .brand:hover {
+        text-decoration: none;
+      }
+
+      .brand img {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(37, 135, 109, 0.2);
+      }
+
+      .brand span {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(37, 135, 109, 0.28);
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-dark);
+      }
+
+      main {
+        padding: 12px 0 48px;
+      }
+
+      .page-intro {
+        margin-bottom: 28px;
+      }
+
+      .page-intro h1 {
+        font-size: clamp(1.75rem, 4vw, 2.25rem);
+        line-height: 1.2;
+        margin-bottom: 8px;
+      }
+
+      .page-intro p {
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .version-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px 28px;
+        margin-bottom: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        box-shadow: 0 4px 24px rgba(29, 35, 41, 0.04);
+      }
+
+      .version-label {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 4px;
+      }
+
+      .version-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1.1;
+      }
+
+      .version-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--primary-soft);
+        color: var(--primary-dark);
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .version-status::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      .release-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: 0 4px 24px rgba(29, 35, 41, 0.04);
+      }
+
+      .release-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 24px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .release-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+      }
+
+      .release-date {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .release-section {
+        margin-bottom: 28px;
+      }
+
+      .release-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .release-section h2 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: var(--foreground);
+      }
+
+      .release-section ul {
+        padding-left: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .release-section li {
+        color: var(--foreground);
+      }
+
+      .release-section li strong {
+        color: var(--primary-dark);
+      }
+
+      .release-section[dir="rtl"] h2,
+      .release-section[dir="rtl"] ul {
+        text-align: right;
+      }
+
+      .release-section[dir="rtl"] ul {
+        padding-left: 0;
+        padding-right: 1.25rem;
+      }
+
+      .release-note {
+        margin-top: 24px;
+        padding: 16px 18px;
+        border-radius: 12px;
+        background: var(--primary-soft);
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+
+      .actions {
+        margin-top: 28px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .btn-ghost {
+        background: var(--card);
+        color: var(--foreground);
+        border: 1px solid var(--border);
+      }
+
+      footer {
+        padding: 32px 0 48px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .footer-credit {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-bg">
+      <div class="container">
+        <header>
+          <a class="brand" href="./index.html">
+            <img
+              src="./icon.png"
+              alt="Arabizzi Chrome extension logo"
+              width="44"
+              height="44"
+            />
+            <span>Arabizzi</span>
+          </a>
+          <a
+            class="btn btn-primary"
+            href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Add to Chrome
+          </a>
+        </header>
+
+        <main>
+          <div class="page-intro">
+            <h1>Releases</h1>
+            <p>Current extension version and the latest update notes.</p>
+          </div>
+
+          <section class="version-card" aria-label="Current version">
+            <div>
+              <div class="version-label">Current version</div>
+              <div class="version-number">v1.2.1</div>
+            </div>
+            <span class="version-status">Live on Chrome Web Store</span>
+          </section>
+
+          <article class="release-card" aria-labelledby="release-title">
+            <div class="release-header">
+              <h2 class="release-title" id="release-title">
+                v1.2.1 — Store publish package
+              </h2>
+              <time class="release-date" datetime="2026-06-19">June 19, 2026</time>
+            </div>
+
+            <section class="release-section" lang="en">
+              <h2>What's new</h2>
+              <ul>
+                <li>
+                  <strong>Arabic publish copy</strong> — Chrome Web Store listing
+                  text in Arabic
+                </li>
+                <li>
+                  <strong>Arabic description polish</strong> — improved in-app
+                  Arabic wording
+                </li>
+                <li>
+                  <strong>Store-ready package</strong> — updated ZIP for Chrome
+                  Web Store upload
+                </li>
+              </ul>
+            </section>
+
+            <section class="release-section" lang="en">
+              <h2>Also includes (from v1.2.0)</h2>
+              <ul>
+                <li>Colloquial Arabic labels (عامية)</li>
+                <li>History panel with Recent / Saved, bookmarks, and restore</li>
+                <li>Thmanyah font on tabs and convert button</li>
+                <li>Scrollable output and consistent <strong>Arabizzi</strong> branding</li>
+              </ul>
+            </section>
+
+            <section class="release-section" dir="rtl" lang="ar">
+              <h2>ما الجديد</h2>
+              <ul>
+                <li>
+                  <strong>نصوص عربية للنشر</strong> — مواد متجر Chrome بالعربية
+                </li>
+                <li><strong>تحسين الوصف العربي</strong> في الواجهة</li>
+                <li><strong>حزمة ZIP</strong> جاهزة للرفع على متجر Chrome</li>
+              </ul>
+            </section>
+
+            <p class="release-note">
+              Install or update from the
+              <a
+                href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Chrome Web Store</a
+              >. Older releases are on
+              <a
+                href="https://github.com/Abdelkaderbzz/arabizzi/releases"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >.
+            </p>
+
+            <div class="actions">
+              <a
+                class="btn btn-primary"
+                href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Update extension
+              </a>
+              <a
+                class="btn btn-ghost"
+                href="https://github.com/Abdelkaderbzz/arabizzi/releases/tag/v1.2.1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub
+              </a>
+            </div>
+          </article>
+        </main>
+
+        <footer>
+          <div class="footer-credit">
+            <span>© 2026 Arabizzi</span>
+            <span>
+              Created by
+              <a href="https://abdelkader.pro/" target="_blank" rel="noopener noreferrer"
+                >abdelkaderbzz</a
+              >
+            </span>
+          </div>
+          <div class="footer-links">
+            <a href="./index.html">Home</a>
+            <a href="./releases.html">Releases</a>
+            <a href="./privacy.html">Privacy</a>
+            <a
+              href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Chrome Web Store</a
+            >
+            <a
+              href="https://github.com/Abdelkaderbzz/arabizzi/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+              >All releases</a
+            >
+            <a href="mailto:abdelkader.bouzomita@gmail.com">Contact</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      window.Fu = window.Fu || {};
+      Fu.access_token = "c73c052759e3602ca716ff469cde44";
+      (function (d) {
+        let s = d.createElement("script");
+        s.async = true;
+        s.src = "https://widget.feeduser.me/widget/v1.js";
+        (d.head || d.body).appendChild(s);
+      })(document);
+    </script>
+  </body>
+</html>

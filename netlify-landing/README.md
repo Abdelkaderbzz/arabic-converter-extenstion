@@ -42,4 +42,4 @@ https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm
 
 ## Privacy policy
 
-Host `netlify-privacy/` as a separate Netlify site (or subpath) and add a footer link if needed.
+Included at `privacy.html` in this folder. Live URL: [arabizzi.com/privacy.html](https://arabizzi.com/privacy.html). Linked from the site footer on every page.
