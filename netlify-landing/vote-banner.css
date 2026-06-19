@@ -1,0 +1,65 @@
+:root {
+  --vote-banner-height: 46px;
+}
+
+body.has-vote-banner {
+  padding-top: var(--vote-banner-height);
+}
+
+.vote-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  min-height: var(--vote-banner-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px 16px;
+  background: linear-gradient(90deg, #c2410c, #ea580c, #e6783c);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.88rem;
+  box-shadow: 0 4px 20px rgba(194, 65, 12, 0.35);
+  transition: filter 0.15s ease;
+}
+
+.vote-banner:hover {
+  filter: brightness(1.05);
+  text-decoration: none;
+}
+
+.vote-banner strong {
+  font-weight: 700;
+}
+
+.vote-banner-text {
+  text-align: center;
+  line-height: 1.35;
+}
+
+.vote-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --vote-banner-height: 56px;
+  }
+
+  .vote-banner-text span[lang="ar"] {
+    display: block;
+    font-size: 0.82rem;
+    opacity: 0.95;
+  }
+}
