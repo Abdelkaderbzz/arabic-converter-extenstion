@@ -56,7 +56,7 @@ Upload `arabizzi-extension.zip` at the [Chrome Web Store Developer Dashboard](ht
 - **Category:** Productivity
 - **Icons:** 16×16, 48×48, and 128×128 PNGs (included in `icons/`)
 - **Screenshots:** 1280×800 or 640×400
-- **Privacy policy:** deploy `netlify-privacy/index.html` and use that URL
+- **Privacy policy:** [https://arabizzi.com/privacy.html](https://arabizzi.com/privacy.html) (`netlify-landing/privacy.html`)
 - **Privacy practices:** declare local storage of API key and that text is sent to Google Gemini for conversion
 
 ## How it works
