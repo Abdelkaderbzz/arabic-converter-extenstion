@@ -1,10 +1,13 @@
 "use strict";
 
 const MODEL = "gemini-2.5-flash";
+const OUTPUT_MODES = ["fusha", "tunisian", "english", "french"];
+
 const STORAGE = {
   apiKey: "gemini_api_key",
   language: "language",
   mode: "to_fusha",
+  outputMode: "output_mode",
   history: "conversion_history",
 };
 
@@ -21,12 +24,18 @@ const I18N = {
     fushaDesc: "Modern Standard Arabic",
     tunisian: "Colloquial",
     tunisianDesc: "Arabic script",
+    english: "English",
+    englishDesc: "English translation",
+    french: "French",
+    frenchDesc: "French translation",
     convert: "Convert",
     converting: "Converting...",
     copy: "Copy",
     copied: "Copied!",
     outputFusha: "Modern Standard Arabic",
     outputTunisian: "Colloquial Arabic (Arabic script)",
+    outputEnglish: "English",
+    outputFrench: "French",
     outputEmpty: "Your converted text will appear here",
     historyTitle: "Recent Conversions",
     tabRecent: "Recent",
@@ -61,12 +70,18 @@ const I18N = {
     fushaDesc: "العربية الفصحى",
     tunisian: "عامية",
     tunisianDesc: "حروف عربية",
+    english: "إنجليزي",
+    englishDesc: "ترجمة إنجليزية",
+    french: "فرنسي",
+    frenchDesc: "ترجمة فرنسية",
     convert: "تحويل",
     converting: "جاري التحويل...",
     copy: "نسخ",
     copied: "تم النسخ!",
     outputFusha: "العربية الفصحى",
     outputTunisian: "العربية العامية (حروف عربية)",
+    outputEnglish: "الإنجليزية",
+    outputFrench: "الفرنسية",
     outputEmpty: "سيظهر النص المحوّل هنا",
     historyTitle: "التحويلات الأخيرة",
     tabRecent: "الأخيرة",
@@ -140,10 +155,50 @@ const latinaPrompt = (text) => `Convert the following Tunisian Arabic text (writ
 ### **Output:**
 (Provide only the converted text in Arabic script)`;
 
+const englishPrompt = (text) => `Translate the following Tunisian Arabic text (written in Latin characters with numbers, known as Arabizi) into natural English.
+
+### **Rules:**
+1. **Provide only the translated text** in English, without any explanations, notes, or additional text.
+2. **Accurately interpret phonetic representations**, following these mappings:
+   - '3' → 'ع'
+   - '7' → 'ح'
+   - '8' → 'غ'
+   - '9' → 'ق'
+   - '5' → 'خ'
+   - '2' → 'ء'
+3. **Preserve the meaning and tone** of the original Tunisian Arabic message.
+4. **Use natural, fluent English** — not word-for-word literal translation when idioms are involved.
+
+### **Input Text:**
+"${text}"
+
+### **Output:**
+(Provide only the translated text in English)`;
+
+const frenchPrompt = (text) => `Translate the following Tunisian Arabic text (written in Latin characters with numbers, known as Arabizi) into natural French.
+
+### **Rules:**
+1. **Provide only the translated text** in French, without any explanations, notes, or additional text.
+2. **Accurately interpret phonetic representations**, following these mappings:
+   - '3' → 'ع'
+   - '7' → 'ح'
+   - '8' → 'غ'
+   - '9' → 'ق'
+   - '5' → 'خ'
+   - '2' → 'ء'
+3. **Preserve the meaning and tone** of the original Tunisian Arabic message.
+4. **Use natural, fluent French** — not word-for-word literal translation when idioms are involved.
+
+### **Input Text:**
+"${text}"
+
+### **Output:**
+(Provide only the translated text in French)`;
+
 // State
 let state = {
   language: "en",
-  toFusha: true,
+  outputMode: "fusha",
   apiKey: "",
   history: [],
   historyTab: "recent",
@@ -194,6 +249,46 @@ function t() {
   return I18N[state.language];
 }
 
+function normalizeOutputMode(stored) {
+  if (
+    stored[STORAGE.outputMode] &&
+    OUTPUT_MODES.includes(stored[STORAGE.outputMode])
+  ) {
+    return stored[STORAGE.outputMode];
+  }
+  if (stored[STORAGE.mode] === false) return "tunisian";
+  return "fusha";
+}
+
+function outputDir(mode) {
+  return mode === "english" || mode === "french" ? "ltr" : "rtl";
+}
+
+function modeLabel(mode) {
+  const tr = t();
+  if (mode === "fusha") return tr.fusha;
+  if (mode === "tunisian") return tr.tunisian;
+  if (mode === "english") return tr.english;
+  if (mode === "french") return tr.french;
+  return tr.fusha;
+}
+
+function outputTypeLabel(mode) {
+  const tr = t();
+  if (mode === "fusha") return tr.outputFusha;
+  if (mode === "tunisian") return tr.outputTunisian;
+  if (mode === "english") return tr.outputEnglish;
+  if (mode === "french") return tr.outputFrench;
+  return tr.outputFusha;
+}
+
+function promptForMode(mode, text) {
+  if (mode === "tunisian") return latinaPrompt(text);
+  if (mode === "english") return englishPrompt(text);
+  if (mode === "french") return frenchPrompt(text);
+  return fushaPrompt(text);
+}
+
 function applyLanguage() {
   const tr = t();
   document.documentElement.dir = tr.dir;
@@ -221,6 +316,10 @@ function applyLanguage() {
   document.querySelector('[data-key="tunisian"]').textContent = tr.tunisian;
   document.querySelector('[data-key="tunisianDesc"]').textContent =
     tr.tunisianDesc;
+  document.querySelector('[data-key="english"]').textContent = tr.english;
+  document.querySelector('[data-key="englishDesc"]').textContent = tr.englishDesc;
+  document.querySelector('[data-key="french"]').textContent = tr.french;
+  document.querySelector('[data-key="frenchDesc"]').textContent = tr.frenchDesc;
 
   updateOutputLabel();
   renderHistory();
@@ -228,14 +327,15 @@ function applyLanguage() {
 }
 
 function updateOutputLabel() {
-  $("output-label").textContent = state.toFusha
-    ? t().outputFusha
-    : t().outputTunisian;
+  $("output-label").textContent = outputTypeLabel(state.outputMode);
 }
 
 function applyMode() {
-  $("mode-fusha").classList.toggle("active", state.toFusha);
-  $("mode-tunisian").classList.toggle("active", !state.toFusha);
+  OUTPUT_MODES.forEach((mode) => {
+    const el = $(`mode-${mode}`);
+    if (el) el.classList.toggle("active", state.outputMode === mode);
+  });
+  $("output").dir = outputDir(state.outputMode);
   updateOutputLabel();
 }
 
@@ -283,12 +383,12 @@ function formatTimestamp(timestamp) {
 
 function restoreConversion(entry) {
   $("latin-input").value = entry.input;
-  state.toFusha = entry.type === "fusha";
+  state.outputMode = OUTPUT_MODES.includes(entry.type) ? entry.type : "fusha";
   applyMode();
   setOutput("");
   setError("");
   validateInput();
-  storageSet({ [STORAGE.mode]: state.toFusha });
+  storageSet({ [STORAGE.outputMode]: state.outputMode });
 }
 
 function createIconButton(className, iconHtml, title) {
@@ -301,6 +401,7 @@ function createIconButton(className, iconHtml, title) {
 }
 
 function renderHistory() {
+  const panel = $("history-panel");
   const head = $("history-head");
   const emptyState = $("history-empty-state");
   const list = $("history-list");
@@ -310,6 +411,7 @@ function renderHistory() {
   const saved = state.history.filter((entry) => entry.bookmarked);
   const recent = state.history.filter((entry) => !entry.bookmarked);
   const entries = state.historyTab === "saved" ? saved : recent;
+  const hasHistory = state.history.length > 0;
 
   $("tab-recent-count").textContent = String(recent.length);
   $("tab-saved-count").textContent = String(saved.length);
@@ -324,28 +426,29 @@ function renderHistory() {
     state.historyTab === "saved" ? "true" : "false"
   );
 
-  if (!state.history.length) {
-    head.hidden = true;
-    emptyState.hidden = false;
-    empty.hidden = true;
-    list.innerHTML = "";
-    clearBtn.hidden = true;
+  panel.classList.toggle("has-history", hasHistory);
+  panel.classList.toggle("show-global-empty", !hasHistory);
+  panel.classList.toggle("show-tab-empty", hasHistory && !entries.length);
+
+  head.toggleAttribute("hidden", !hasHistory);
+  emptyState.toggleAttribute("hidden", hasHistory);
+  emptyState.setAttribute("aria-hidden", hasHistory ? "true" : "false");
+  clearBtn.hidden = !hasHistory || state.historyTab !== "recent" || !recent.length;
+  list.innerHTML = "";
+
+  if (!hasHistory) {
+    empty.toggleAttribute("hidden", true);
     return;
   }
 
-  head.hidden = false;
-  emptyState.hidden = true;
-  clearBtn.hidden = state.historyTab !== "recent" || !recent.length;
-  list.innerHTML = "";
-
   if (!entries.length) {
-    empty.hidden = false;
+    empty.toggleAttribute("hidden", false);
     empty.textContent =
       state.historyTab === "saved" ? t().savedEmpty : t().historyEmpty;
     return;
   }
 
-  empty.hidden = true;
+  empty.toggleAttribute("hidden", true);
 
   entries.forEach((entry) => {
     const item = document.createElement("div");
@@ -356,7 +459,7 @@ function renderHistory() {
 
     const type = document.createElement("span");
     type.className = `hi-type ${entry.type}`;
-    type.textContent = entry.type === "fusha" ? t().fusha : t().tunisian;
+    type.textContent = modeLabel(entry.type);
 
     const actions = document.createElement("div");
     actions.className = "hi-actions";
@@ -407,7 +510,7 @@ function renderHistory() {
 
     const output = document.createElement("div");
     output.className = "hi-output";
-    output.dir = "rtl";
+    output.dir = outputDir(entry.type);
     output.textContent = entry.output;
 
     const footer = document.createElement("div");
@@ -452,7 +555,7 @@ async function handleConvert() {
   $("convert-label").textContent = t().converting;
 
   try {
-    const prompt = state.toFusha ? fushaPrompt(input) : latinaPrompt(input);
+    const prompt = promptForMode(state.outputMode, input);
     const result = await callGemini(prompt, state.apiKey);
     setOutput(result);
 
@@ -460,7 +563,7 @@ async function handleConvert() {
       id: Math.random().toString(36).slice(2, 11),
       input,
       output: result,
-      type: state.toFusha ? "fusha" : "tunisian",
+      type: state.outputMode,
       timestamp: Date.now(),
     };
     state.history = pruneHistory([entry, ...state.history]);
@@ -492,15 +595,12 @@ function bindEvents() {
     if ((e.metaKey || e.ctrlKey) && e.key === "Enter") handleConvert();
   });
 
-  $("mode-fusha").addEventListener("click", async () => {
-    state.toFusha = true;
-    applyMode();
-    await storageSet({ [STORAGE.mode]: true });
-  });
-  $("mode-tunisian").addEventListener("click", async () => {
-    state.toFusha = false;
-    applyMode();
-    await storageSet({ [STORAGE.mode]: false });
+  OUTPUT_MODES.forEach((mode) => {
+    $(`mode-${mode}`).addEventListener("click", async () => {
+      state.outputMode = mode;
+      applyMode();
+      await storageSet({ [STORAGE.outputMode]: mode });
+    });
   });
 
   $("convert-btn").addEventListener("click", handleConvert);
@@ -546,14 +646,14 @@ async function init() {
   const stored = await storageGet([
     STORAGE.apiKey,
     STORAGE.language,
+    STORAGE.outputMode,
     STORAGE.mode,
     STORAGE.history,
   ]);
 
   state.apiKey = stored[STORAGE.apiKey] || "";
   state.language = stored[STORAGE.language] || "ar";
-  state.toFusha =
-    stored[STORAGE.mode] === undefined ? true : stored[STORAGE.mode];
+  state.outputMode = normalizeOutputMode(stored);
   state.history = stored[STORAGE.history] || [];
 
   $("api-key").value = state.apiKey;
@@ -562,6 +662,7 @@ async function init() {
   applyLanguage();
   applyMode();
   setOutput("");
+  renderHistory();
 
   // Prompt for key on first run
   if (!state.apiKey) {

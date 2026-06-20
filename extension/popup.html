@@ -62,7 +62,7 @@
         ></textarea>
 
         <span class="label" id="mode-label">Output type</span>
-        <div class="segmented" role="tablist">
+        <div class="segmented segmented-modes" role="tablist">
           <button class="seg active" id="mode-fusha" type="button">
             <span class="seg-title" data-key="fusha">Fusha</span>
             <span class="seg-desc" data-key="fushaDesc">Modern Standard Arabic</span>
@@ -70,6 +70,14 @@
           <button class="seg" id="mode-tunisian" type="button">
             <span class="seg-title" data-key="tunisian">Colloquial</span>
             <span class="seg-desc" data-key="tunisianDesc">Arabic script</span>
+          </button>
+          <button class="seg" id="mode-english" type="button">
+            <span class="seg-title" data-key="english">English</span>
+            <span class="seg-desc" data-key="englishDesc">English translation</span>
+          </button>
+          <button class="seg" id="mode-french" type="button">
+            <span class="seg-title" data-key="french">French</span>
+            <span class="seg-desc" data-key="frenchDesc">French translation</span>
           </button>
         </div>
 
@@ -98,6 +106,16 @@
                 role="tab"
                 aria-selected="true"
               >
+                <svg class="history-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 8v4l3 1.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
                 <span id="tab-recent-label">Recent</span>
                 <span class="history-tab-count" id="tab-recent-count">0</span>
               </button>
@@ -141,7 +159,7 @@
               </svg>
             </button>
           </div>
-          <div class="history-empty-state" id="history-empty-state">
+          <div class="history-empty-state" id="history-empty-state" hidden aria-hidden="true">
             <div class="history-empty-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
