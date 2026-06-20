@@ -289,6 +289,15 @@ function promptForMode(mode, text) {
   return fushaPrompt(text);
 }
 
+function setCopyButtonLabel(label, copied = false) {
+  const btn = $("copy-btn");
+  btn.classList.toggle("copied", copied);
+  btn.innerHTML = copied
+    ? `${ICON.check}<span>${label}</span>`
+    : `${ICON.copy}<span>${label}</span>`;
+  btn.title = label;
+}
+
 function applyLanguage() {
   const tr = t();
   document.documentElement.dir = tr.dir;
@@ -302,7 +311,7 @@ function applyLanguage() {
   $("tab-recent-label").textContent = tr.tabRecent;
   $("tab-saved-label").textContent = tr.tabSaved;
   $("clear-btn").title = tr.clearAll;
-  $("copy-btn").textContent = tr.copy;
+  setCopyButtonLabel(tr.copy);
   $("key-label").textContent = tr.keyLabel;
   $("key-hint").textContent = tr.keyHint;
   $("key-link").textContent = tr.keyLink;
@@ -608,8 +617,8 @@ function bindEvents() {
   $("copy-btn").addEventListener("click", () => {
     const text = $("output").textContent;
     navigator.clipboard.writeText(text);
-    $("copy-btn").textContent = t().copied;
-    setTimeout(() => ($("copy-btn").textContent = t().copy), 1500);
+    setCopyButtonLabel(t().copied, true);
+    setTimeout(() => setCopyButtonLabel(t().copy), 1500);
   });
 
   $("clear-btn").addEventListener("click", async () => {

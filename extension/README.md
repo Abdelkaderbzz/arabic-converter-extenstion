@@ -34,6 +34,20 @@ extension/
 2. Create an API key (no credit card required)
 3. In the extension popup, click the gear icon, paste the key, and save
 
+## Preview in the browser
+
+```bash
+pnpm extension:preview
+```
+
+| Page | URL | What it shows |
+|------|-----|----------------|
+| **User preview** | http://localhost:5173/preview-user.html | v1.3.0 after setup — API key hidden, sample conversion, popup over a page |
+| Developer preview | http://localhost:5173/preview.html | First-run flow (API key panel opens automatically) |
+| Raw popup | http://localhost:5173/popup.html | Exact extension markup without mocks |
+
+Use the scenario pills under the user preview to switch colloquial / fusha / English / French / empty input.
+
 ## Load locally (development)
 
 1. Open `chrome://extensions`

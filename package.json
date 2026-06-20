@@ -13,7 +13,8 @@
     "start": "next start",
     "lint": "next lint",
     "extension": "bash scripts/run-extension.sh",
-    "extension:preview": "python3 -m http.server 5173 --directory extension"
+    "extension:preview": "python3 -m http.server 5173 --directory extension",
+    "extension:preview:user": "python3 -m http.server 5173 --directory extension"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

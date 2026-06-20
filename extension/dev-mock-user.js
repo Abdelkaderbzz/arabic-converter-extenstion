@@ -1,6 +1,7 @@
-// Mock Chrome APIs for developer preview (first-run / empty state).
+// Mock Chrome APIs — returning user (API key saved, no demo history).
 (function () {
   const store = {
+    gemini_api_key: "preview-saved-key",
     language: "ar",
     output_mode: "tunisian",
     conversion_history: [],

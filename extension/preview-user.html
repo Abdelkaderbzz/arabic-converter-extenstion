@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>Arabizzi</title>
+    <style>
+      html {
+        min-height: 100%;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 120px),
+          linear-gradient(135deg, #5b6b8a 0%, #3d4660 45%, #2a3148 100%);
+      }
+
+      body {
+        width: auto;
+        margin: 0;
+        padding: 56px 20px 32px;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .popup-frame {
+        width: 380px;
+        background: var(--bg);
+        box-shadow:
+          0 16px 48px rgba(0, 0, 0, 0.28),
+          0 0 0 1px rgba(0, 0, 0, 0.08);
+      }
+
+      .popup-frame .app {
+        max-height: 600px;
+      }
+
+      .preview-caption {
+        color: rgba(255, 255, 255, 0.72);
+        font: 500 12px/1.4 "Thmanyah Sans", system-ui, sans-serif;
+        text-align: center;
+      }
+
+      .preview-scenarios {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        max-width: 420px;
+      }
+
+      .preview-scenarios a {
+        color: rgba(255, 255, 255, 0.88);
+        text-decoration: none;
+        font: 600 11px/1 "Thmanyah Sans", system-ui, sans-serif;
+        padding: 7px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.08);
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+
+      .preview-scenarios a:hover {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(255, 255, 255, 0.28);
+      }
+
+      .preview-scenarios a.active {
+        background: rgba(37, 135, 109, 0.92);
+        border-color: rgba(37, 135, 109, 1);
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="dev-mock-user.js"></script>
+
+    <div class="popup-frame">
+      <div class="app">
+        <header class="header">
+          <div class="brand">
+            <div class="badge" id="hint-badge">3 → ع · 7 → ح · 9 → ق</div>
+            <h1 class="brand-title">Arabizzi</h1>
+            <p id="description">
+              Convert colloquial Arabic text between Latin and Arabic scripts
+            </p>
+          </div>
+          <div class="header-actions">
+            <button class="icon-btn" id="settings-btn" title="Settings">⚙</button>
+            <button class="lang-btn" id="lang-btn">العربية</button>
+          </div>
+        </header>
+
+        <section class="card settings" id="settings-panel" hidden>
+          <label class="label" id="key-label" for="api-key">Gemini API key</label>
+          <p class="hint" id="key-hint">
+            Stored only in your browser. Get a free key from Google AI Studio.
+          </p>
+          <div class="key-row">
+            <input type="password" id="api-key" class="input" placeholder="AIza..." autocomplete="off" />
+            <button class="btn-secondary" id="save-key" type="button">Save</button>
+          </div>
+          <a class="link" id="key-link" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">Get an API key →</a>
+          <div class="key-status" id="key-status"></div>
+        </section>
+
+        <section class="card">
+          <label class="label" id="input-label" for="latin-input">Colloquial Arabic (Latin script)</label>
+          <textarea id="latin-input" class="input textarea" dir="ltr" placeholder="Type colloquial Arabic using Latin characters"></textarea>
+
+          <span class="label" id="mode-label">Output type</span>
+          <div class="segmented segmented-modes" role="tablist">
+            <button class="seg active" id="mode-fusha" type="button">
+              <span class="seg-title" data-key="fusha">Fusha</span>
+              <span class="seg-desc" data-key="fushaDesc">Modern Standard Arabic</span>
+            </button>
+            <button class="seg" id="mode-tunisian" type="button">
+              <span class="seg-title" data-key="tunisian">Colloquial</span>
+              <span class="seg-desc" data-key="tunisianDesc">Arabic script</span>
+            </button>
+            <button class="seg" id="mode-english" type="button">
+              <span class="seg-title" data-key="english">English</span>
+              <span class="seg-desc" data-key="englishDesc">English translation</span>
+            </button>
+            <button class="seg" id="mode-french" type="button">
+              <span class="seg-title" data-key="french">French</span>
+              <span class="seg-desc" data-key="frenchDesc">French translation</span>
+            </button>
+          </div>
+
+          <button class="btn-primary" id="convert-btn" type="button" disabled>
+            <span id="convert-label">Convert</span>
+          </button>
+
+          <div class="alert" id="error" hidden></div>
+
+          <div class="output-head">
+            <span class="label" id="output-label">Modern Standard Arabic</span>
+            <button class="copy-btn" id="copy-btn" type="button" hidden>Copy</button>
+          </div>
+          <div class="output empty" id="output" dir="rtl">Your converted text will appear here</div>
+
+          <div class="history-panel" id="history-panel">
+            <div class="history-head" id="history-head" hidden>
+              <div class="history-tabs" role="tablist">
+                <button class="history-tab active" id="tab-recent" type="button" role="tab" aria-selected="true">
+                  <svg class="history-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 8v4l3 1.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span id="tab-recent-label">Recent</span>
+                  <span class="history-tab-count" id="tab-recent-count">0</span>
+                </button>
+                <button class="history-tab" id="tab-saved" type="button" role="tab" aria-selected="false">
+                  <svg class="history-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span id="tab-saved-label">Saved</span>
+                  <span class="history-tab-count" id="tab-saved-count">0</span>
+                </button>
+              </div>
+              <button class="icon-action danger" id="clear-btn" type="button" title="Clear recent" hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="history-empty-state" id="history-empty-state" hidden aria-hidden="true">
+              <div class="history-empty-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 3v5h5M21 21v-5h-5M21 3a9 9 0 0 0-9 9M3 21a9 9 0 0 0 9-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p id="history-empty-all">No conversion history yet</p>
+            </div>
+            <p class="history-empty" id="history-empty" hidden></p>
+            <div id="history-list" class="history-list"></div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <a class="footer-link" href="https://arabizzi.com/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            arabizzi.com
+          </a>
+          <span class="footer-dot">·</span>
+          <a class="footer-link" href="https://github.com/Abdelkaderbzz/arabizzi" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            GitHub
+          </a>
+          <span class="footer-dot">·</span>
+          <a class="footer-link footer-link-support" href="https://buymeacoffee.com/jhE1Ep04XT" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span id="footer-support">Support Project</span>
+          </a>
+        </footer>
+      </div>
+    </div>
+
+    <p class="preview-caption">v1.3.0 — كما يراه المستخدم بعد إعداد المفتاح (بدون Gemini)</p>
+    <nav class="preview-scenarios" id="preview-scenarios" aria-label="Preview scenarios"></nav>
+
+    <script src="popup.js"></script>
+    <script src="preview-user-boot.js"></script>
+  </body>
+</html>
