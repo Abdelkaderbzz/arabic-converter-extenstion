@@ -78,7 +78,8 @@
             },
             "sameAs": [
               "https://github.com/Abdelkaderbzz/arabizzi",
-              "https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+              "https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm",
+              "https://www.mortakaz.com/"
             ]
           },
           {
@@ -912,6 +913,143 @@
         text-decoration: underline;
       }
 
+      /* Mortakaz */
+      .mortakaz-panel {
+        display: grid;
+        grid-template-columns: 1fr 1.05fr;
+        gap: 28px;
+        align-items: center;
+        padding: 28px;
+        background: linear-gradient(135deg, #0f1419 0%, #151b24 55%, #101820 100%);
+        border: 1px solid rgba(59, 130, 246, 0.22);
+        border-radius: calc(var(--radius) + 4px);
+        box-shadow: 0 24px 60px rgba(15, 20, 25, 0.18);
+        color: #f8fafc;
+      }
+
+      .mortakaz-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .mortakaz-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .mortakaz-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 600;
+      }
+
+      .mortakaz-badge-official {
+        color: #dbeafe;
+        background: rgba(59, 130, 246, 0.16);
+        border: 1px solid rgba(96, 165, 250, 0.35);
+      }
+
+      .mortakaz-badge-rising {
+        color: #d1fae5;
+        background: rgba(37, 135, 109, 0.18);
+        border: 1px solid rgba(52, 211, 153, 0.35);
+      }
+
+      .mortakaz-copy h3 {
+        font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+        line-height: 1.35;
+      }
+
+      .mortakaz-copy h3 span {
+        color: #34d399;
+      }
+
+      .mortakaz-copy p {
+        color: rgba(248, 250, 252, 0.72);
+        font-size: 0.95rem;
+        max-width: 48ch;
+      }
+
+      .mortakaz-copy p[lang="ar"] {
+        direction: rtl;
+        text-align: right;
+        font-size: 1rem;
+        color: rgba(248, 250, 252, 0.82);
+      }
+
+      .mortakaz-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 4px;
+      }
+
+      .mortakaz-actions .btn-primary {
+        background: #3b82f6;
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.35);
+      }
+
+      .mortakaz-actions .btn-primary:hover {
+        background: #2563eb;
+      }
+
+      .mortakaz-actions .btn-ghost {
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: #f8fafc;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .mortakaz-actions .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .mortakaz-shots {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 14px;
+        align-items: start;
+      }
+
+      .mortakaz-shot {
+        position: relative;
+        padding: 10px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .mortakaz-shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .mortakaz-shot-label {
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: #fff;
+        background: rgba(8, 12, 18, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .mortakaz-shot-secondary {
+        margin-top: 28px;
+      }
+
       /* Features */
       .features-grid {
         display: grid;
@@ -1186,6 +1324,18 @@
           grid-template-columns: 1fr;
         }
 
+        .mortakaz-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .mortakaz-shots {
+          grid-template-columns: 1fr;
+        }
+
+        .mortakaz-shot-secondary {
+          margin-top: 0;
+        }
+
         header .btn-ghost {
           display: none;
         }
@@ -1222,6 +1372,7 @@
           </a>
           <nav class="site-nav" aria-label="Site">
             <a href="#reviews">Reviews</a>
+            <a href="#mortakaz">Mortakaz</a>
             <a href="./releases.html">Releases</a>
             <a href="./privacy.html">Privacy</a>
             <a href="./vote.html">Vote</a>
@@ -1469,6 +1620,85 @@
           </div>
         </section>
 
+        <section id="mortakaz">
+          <div class="section-title">
+            <h2>Now on Mortakaz</h2>
+            <p>
+              Arabizzi is officially published on
+              <a href="https://www.mortakaz.com/" target="_blank" rel="noopener noreferrer"
+                >Mortakaz</a
+              >
+              — an Arabic platform to discover, support, and share feedback on Arabic-built
+              projects.
+            </p>
+          </div>
+
+          <div class="mortakaz-panel reveal">
+            <div class="mortakaz-copy">
+              <div class="mortakaz-badges">
+                <span class="mortakaz-badge mortakaz-badge-official">Official launch</span>
+                <span class="mortakaz-badge mortakaz-badge-rising" lang="ar">مشروع صاعد</span>
+              </div>
+
+              <h3>
+                <span>Arabizzi</span> is live on Mortakaz
+              </h3>
+
+              <p lang="ar">
+                Arabizzi متوفر الآن رسميًا على مرتكز — منصة عربية بديلة لـ Product Hunt لمشاركة
+                المشاريع العربية ودعمها.
+              </p>
+
+              <p>
+                Visit our project page, try the extension, and leave your feedback on Mortakaz to
+                help more Arabic speakers discover Arabizzi.
+              </p>
+
+              <div class="mortakaz-actions">
+                <a
+                  class="btn btn-primary"
+                  href="https://www.mortakaz.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Mortakaz
+                </a>
+                <a
+                  class="btn btn-ghost"
+                  href="https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Try Arabizzi
+                </a>
+              </div>
+            </div>
+
+            <div class="mortakaz-shots">
+              <figure class="mortakaz-shot">
+                <span class="mortakaz-shot-label" lang="ar">صفحة المشروع</span>
+                <img
+                  src="./images/mortakaz/project-page.png"
+                  alt="Arabizzi project page on Mortakaz showing Rising Project status"
+                  width="640"
+                  height="360"
+                  loading="lazy"
+                />
+              </figure>
+              <figure class="mortakaz-shot mortakaz-shot-secondary">
+                <span class="mortakaz-shot-label" lang="ar">منصة مرتكز</span>
+                <img
+                  src="./images/mortakaz/platform-home.png"
+                  alt="Mortakaz homepage — Arabic platform for discovering tech projects"
+                  width="480"
+                  height="270"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+        </section>
+
         <section id="features">
           <div class="section-title">
             <h2>What you get</h2>
@@ -1669,6 +1899,7 @@
           </div>
           <div class="footer-links">
             <a href="#reviews">Reviews</a>
+            <a href="#mortakaz">Mortakaz</a>
             <a href="./releases.html">Releases</a>
             <a href="./privacy.html">Privacy</a>
             <a href="./vote.html">Vote</a>
@@ -1992,7 +2223,7 @@
           }
         );
 
-        document.querySelectorAll(".demo, .review-card, .contribute, .cta").forEach(function (el) {
+        document.querySelectorAll(".demo, .review-card, .mortakaz-panel, .contribute, .cta").forEach(function (el) {
           el.classList.add("reveal");
         });
 
