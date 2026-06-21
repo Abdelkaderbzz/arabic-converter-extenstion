@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Arabizzi × Mortakaz — LinkedIn Thumbnail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 1200px;
+        height: 627px;
+        overflow: hidden;
+        font-family: "IBM Plex Sans Arabic", "Segoe UI", sans-serif;
+        background: #050505;
+      }
+
+      .canvas {
+        position: relative;
+        width: 1200px;
+        height: 627px;
+        background:
+          radial-gradient(ellipse 520px 320px at 82% 18%, rgba(37, 135, 109, 0.22), transparent 70%),
+          radial-gradient(ellipse 480px 280px at 12% 78%, rgba(59, 130, 246, 0.18), transparent 72%),
+          linear-gradient(145deg, #070707 0%, #0d1117 48%, #050505 100%);
+        overflow: hidden;
+      }
+
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: radial-gradient(circle at 50% 50%, black 35%, transparent 100%);
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr 1.05fr;
+        gap: 36px;
+        height: 100%;
+        padding: 44px 52px;
+        align-items: center;
+      }
+
+      .copy {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .badge-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+
+      .badge-official {
+        color: #dbeafe;
+        background: rgba(59, 130, 246, 0.14);
+        border: 1px solid rgba(96, 165, 250, 0.35);
+      }
+
+      .badge-rising {
+        color: #d1fae5;
+        background: rgba(37, 135, 109, 0.16);
+        border: 1px solid rgba(52, 211, 153, 0.35);
+      }
+
+      .badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: 0 0 10px currentColor;
+      }
+
+      .headline {
+        color: #ffffff;
+        font-size: 54px;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        max-width: 520px;
+      }
+
+      .headline .accent {
+        color: #34d399;
+      }
+
+      .subheadline {
+        display: none;
+      }
+
+      .brand-row {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        margin-top: 18px;
+      }
+
+      .brand-row img {
+        height: 78px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .brand-divider {
+        width: 1px;
+        height: 56px;
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .brand-label {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .visual {
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .screenshot-wrap {
+        position: relative;
+        width: 100%;
+        max-width: 560px;
+        padding: 14px;
+        border-radius: 22px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow:
+          0 30px 80px rgba(0, 0, 0, 0.55),
+          0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+      }
+
+      .screenshot-wrap::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: 23px;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(37, 135, 109, 0.55), rgba(59, 130, 246, 0.45));
+        mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+
+      .screenshot {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .floating-tag {
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(8, 12, 18, 0.88);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 600;
+        backdrop-filter: blur(10px);
+      }
+
+      .floating-tag svg {
+        width: 18px;
+        height: 18px;
+        color: #34d399;
+      }
+
+      .footer-url {
+        position: absolute;
+        left: 52px;
+        bottom: 28px;
+        color: rgba(255, 255, 255, 0.42);
+        font-size: 17px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="grid"></div>
+      <div class="content">
+        <section class="copy">
+          <div class="badge-row">
+            <span class="badge badge-official">
+              <span class="badge-dot"></span>
+              إعلان رسمي
+            </span>
+            <span class="badge badge-rising">مشروع صاعد</span>
+          </div>
+
+          <h1 class="headline">
+            <span class="accent">Arabizzi</span>
+            متوفر الآن على مرتكز
+          </h1>
+
+          <div class="brand-row">
+            <img
+              src="Screenshot_2026-06-21_at_00.26.10-220862ae-28b4-4ebd-8f9e-64a62088c649.png"
+              alt="Mortakaz"
+            />
+            <span class="brand-divider"></span>
+            <span class="brand-label">منصة مرتكز للمشاريع العربية</span>
+          </div>
+        </section>
+
+        <section class="visual">
+          <div class="screenshot-wrap">
+            <span class="floating-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7" />
+              </svg>
+              صفحة المشروع
+            </span>
+            <img
+              class="screenshot"
+              src="Screenshot_2026-06-21_at_00.27.38-831a40ee-5d42-4084-a554-4d5fb0f94083.png"
+              alt="Arabizzi on Mortakaz"
+            />
+          </div>
+        </section>
+      </div>
+
+      <div class="footer-url">arabizzi.com</div>
+    </div>
+  </body>
+</html>
