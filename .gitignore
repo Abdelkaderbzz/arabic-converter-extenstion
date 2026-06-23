@@ -11,6 +11,16 @@
 /.env.development.local
 /.env.test.local
 /.env.production.local
+/.pnpm-store
+tsconfig.tsbuildinfo
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.log
+
+# Build artifacts
+arabizzi-extension.zip
 
 # Usage data
 data/usage.json
