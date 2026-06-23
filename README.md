@@ -1,5 +1,8 @@
 # Arabizzi
 
+[![CI](https://github.com/Abdelkaderbzz/arabizzi/actions/workflows/ci.yml/badge.svg)](https://github.com/Abdelkaderbzz/arabizzi/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Convert Tunisian Arabic written in Latin script (Arabizi) into **Arabic script** or **Modern Standard Arabic (Fusha)**, powered by Google Gemini.
 
 **Website:** [arabizzi.com](https://arabizzi.com/) · **GitHub:** [Abdelkaderbzz/arabizzi](https://github.com/Abdelkaderbzz/arabizzi) · **Chrome extension:** [Web Store](https://chromewebstore.google.com/detail/fkgphgcloiijjpmoiiimjibjafmobnlm)
@@ -45,7 +48,7 @@ See [extension/README.md](extension/README.md) for extension-specific setup and 
 
 ## Tech stack
 
-- Next.js 14 (App Router)
+- Next.js 16 (App Router)
 - TypeScript
 - Tailwind CSS + shadcn/ui
 - Google Gemini (`gemini-2.5-flash`) via Vercel AI SDK
@@ -55,8 +58,8 @@ See [extension/README.md](extension/README.md) for extension-specific setup and 
 
 ### Prerequisites
 
-- Node.js 18+
-- [pnpm](https://pnpm.io/)
+- Node.js 20+
+- [pnpm](https://pnpm.io/) 9+
 - A free [Google AI Studio](https://aistudio.google.com/apikey) API key
 
 ### Installation
@@ -109,8 +112,10 @@ Full details: [extension/README.md](extension/README.md)
 pnpm dev      # run web app locally
 pnpm build    # production build
 pnpm start    # start production server
-pnpm lint     # run linter
+pnpm lint     # run ESLint
 ```
+
+Pull requests run CI automatically: **Lint**, **Build**, and **Extension** checks must pass before merge.
 
 ## Project structure
 
@@ -132,12 +137,19 @@ The Chrome extension stores the API key and preferences locally. Conversion text
 
 ## Contributing
 
-We welcome contributions. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions, then:
+We welcome contributions from the community.
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/my-change`)
-3. Commit your changes
-4. Push and open a pull request using the PR template
+1. Read [CONTRIBUTING.md](CONTRIBUTING.md) for setup and PR guidelines
+2. Follow our [Code of Conduct](CODE_OF_CONDUCT.md)
+3. Fork the repository, create a branch, and open a pull request
+
+## Security
+
+To report a security vulnerability, please read [SECURITY.md](SECURITY.md) and contact us privately. Do not open public issues for security reports.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
