@@ -1,6 +1,6 @@
 {
   "name": "arabizzi",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Convert Tunisian Arabizi to Arabic script or Modern Standard Arabic using Google Gemini. Next.js web app and Chrome extension.",
   "license": "MIT",
   "author": "Abdelkader Bouzomita (https://github.com/Abdelkaderbzz)",
