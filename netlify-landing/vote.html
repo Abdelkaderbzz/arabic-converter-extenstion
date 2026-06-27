@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-    <title>Vote for Arabizzi | Qabilah Hackathon Guide</title>
+    <title>Top 10 Finalist · Arabizzi | Qabilah Hackathon 2026</title>
     <meta
       name="description"
-      content="Vote for Arabizzi in the Qabilah hackathon. Step-by-step guide: sign in with Google or LinkedIn, then tap تصويت on the project page."
+      content="Arabizzi qualified for the Qabilah 2026 hackathon final stage — one of the top 10 community-voted projects. Voting is now closed."
     />
     <meta name="author" content="Abdelkader Bouzomita" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -18,19 +18,19 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Arabizzi" />
-    <meta property="og:title" content="Vote for Arabizzi | Qabilah Hackathon" />
+    <meta property="og:title" content="Top 10 Finalist · Arabizzi | Qabilah Hackathon" />
     <meta
       property="og:description"
-      content="Support Arabizzi in the Qabilah hackathon — quick voting guide with screenshots."
+      content="Arabizzi is among the top 10 projects qualified for the Qabilah 2026 hackathon finals."
     />
     <meta property="og:url" content="https://arabizzi.com/vote.html" />
     <meta property="og:image" content="https://arabizzi.com/icon.png" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Vote for Arabizzi | Qabilah Hackathon" />
+    <meta name="twitter:title" content="Top 10 Finalist · Arabizzi | Qabilah Hackathon" />
     <meta
       name="twitter:description"
-      content="Step-by-step guide to vote for the Arabizzi Chrome extension on Qabilah."
+      content="Arabizzi qualified for the Qabilah 2026 hackathon final stage among the top 10 voted projects."
     />
     <meta name="twitter:image" content="https://arabizzi.com/icon.png" />
 
@@ -42,8 +42,8 @@
             "@type": "WebPage",
             "@id": "https://arabizzi.com/vote.html#webpage",
             "url": "https://arabizzi.com/vote.html",
-            "name": "Vote for Arabizzi | Qabilah Hackathon",
-            "description": "Step-by-step guide to vote for Arabizzi in the Qabilah hackathon.",
+            "name": "Top 10 Finalist · Arabizzi | Qabilah Hackathon",
+            "description": "Arabizzi qualified for the Qabilah 2026 hackathon final stage among the top 10 community-voted projects.",
             "isPartOf": { "@id": "https://arabizzi.com/#website" },
             "inLanguage": "en"
           },
@@ -59,7 +59,7 @@
               {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Vote",
+                "name": "Results",
                 "item": "https://arabizzi.com/vote.html"
               }
             ]
@@ -197,6 +197,17 @@
         background: linear-gradient(135deg, #e6783c, #d45a1a);
         color: #fff;
         box-shadow: 0 8px 24px rgba(212, 90, 26, 0.28);
+      }
+
+      .btn-vote-outline {
+        background: transparent;
+        color: var(--primary);
+        border: 1px solid var(--border);
+        box-shadow: none;
+      }
+
+      .btn-vote-outline:hover {
+        background: rgba(37, 135, 109, 0.06);
       }
 
       main {
@@ -398,6 +409,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
+        padding-top: 20px;
         align-items: center;
       }
 
@@ -424,6 +436,147 @@
         flex-wrap: wrap;
       }
 
+      .vote-thanks {
+        margin-top: 16px;
+        padding: 16px 18px;
+        border-radius: 12px;
+        background: rgba(21, 128, 61, 0.1);
+        border: 1px solid rgba(21, 128, 61, 0.28);
+        color: #14532d;
+        font-size: 0.95rem;
+        line-height: 1.55;
+      }
+
+      .vote-thanks[lang="ar"] {
+        direction: rtl;
+        text-align: right;
+        color: #166534;
+        font-weight: 500;
+      }
+
+      .linkedin-embed-wrap {
+        display: flex;
+        justify-content: center;
+        margin: 28px 0 8px;
+      }
+
+      .linkedin-embed-wrap iframe {
+        width: min(504px, 100%);
+        max-width: 100%;
+        height: 567px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fff;
+      }
+
+      @media (max-width: 540px) {
+        .linkedin-embed-wrap iframe {
+          height: 520px;
+        }
+      }
+
+      .qabilah-finals-heading {
+        margin-top: 28px;
+        margin-bottom: 12px;
+        font-size: 1.05rem;
+        color: var(--foreground);
+      }
+
+      .qabilah-finals-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .qabilah-finals-list a {
+        display: block;
+        padding: 10px 12px;
+        border-radius: 10px;
+        color: var(--foreground);
+        background: #fff;
+        border: 1px solid var(--border);
+        font-size: 0.86rem;
+        line-height: 1.35;
+        text-decoration: none;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .qabilah-finals-list a:hover {
+        border-color: rgba(37, 135, 109, 0.45);
+        box-shadow: 0 4px 14px rgba(37, 135, 109, 0.1);
+        text-decoration: none;
+      }
+
+      .qabilah-finals-list li.is-arabizzi a {
+        color: #14532d;
+        background: rgba(21, 128, 61, 0.08);
+        border-color: rgba(21, 128, 61, 0.35);
+        font-weight: 600;
+      }
+
+      .qabilah-finals-note {
+        margin-top: 10px;
+        font-size: 0.84rem;
+        color: var(--muted);
+      }
+
+      .qabilah-finals-note[lang="ar"] {
+        direction: rtl;
+        text-align: right;
+      }
+
+      .qabilah-results-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .qabilah-result-shot {
+        position: relative;
+        margin: 0;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: #0a0a0a;
+      }
+
+      .qabilah-result-shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .qabilah-result-label {
+        position: absolute;
+        top: 10px;
+        inset-inline-start: 10px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: #ecfdf5;
+        background: rgba(21, 128, 61, 0.82);
+      }
+
+      .qabilah-result-secondary {
+        margin-top: 24px;
+      }
+
+      @media (max-width: 768px) {
+        .qabilah-finals-list,
+        .qabilah-results-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .qabilah-result-secondary {
+          margin-top: 0;
+        }
+      }
+
       @media (max-width: 640px) {
         .vote-step {
           grid-template-columns: 1fr;
@@ -432,13 +585,13 @@
     </style>
   </head>
   <body class="has-vote-banner">
-    <a class="vote-banner" href="./vote.html" aria-current="page">
+    <div class="vote-banner vote-banner--finalist" role="status">
       <span class="vote-banner-text">
-        <strong>Vote for Arabizzi</strong> · Qabilah Hackathon
-        <span lang="ar">· صوّت لـ Arabizzi في قبيلة</span>
+        <strong>Top 10 Finalist</strong> · Qabilah Hackathon 2026
+        <span lang="ar">· Arabizzi ضمن أفضل 10 مشاريع · هكاثون قبيلة</span>
       </span>
-      <span class="vote-banner-cta">How to vote</span>
-    </a>
+      <span class="vote-banner-cta">Voting closed · شكراً لتصويتكم</span>
+    </div>
 
     <div class="page-bg">
       <div class="container">
@@ -460,105 +613,100 @@
         <main>
           <article class="vote-panel">
             <span class="vote-badge">Qabilah Hackathon · قبيلة</span>
-            <h1>How to vote for Arabizzi</h1>
+            <h1>Final qualifiers · Qabilah 2026</h1>
             <p class="vote-intro">
-              Two quick steps — open our project on Qabilah, sign in if needed,
-              then click the vote button.
+              Voting has closed — Arabizzi is on the official list of projects
+              qualified for the final stage at the Qabilah hackathon.
             </p>
-            <p class="vote-intro-ar">خطوتان فقط للتصويت — اتبع الدليل أدناه</p>
+            <p class="vote-intro-ar">
+              المشاريع المتأهلة للتصفيات النهائية في هكاثون قبيلة — Arabizzi
+              ضمن القائمة الرسمية
+            </p>
 
-            <div class="vote-countdown-wrap">
-              <p class="vote-countdown-label">
-                Voting closes in · ينتهي التصويت خلال
-              </p>
-              <div
-                class="vote-countdown"
-                id="vote-countdown"
-                data-end="2026-06-26T00:00:00+03:00"
-                aria-live="polite"
-              >
-                <div class="vote-countdown-unit">
-                  <span class="vote-countdown-value" id="vote-days">--</span>
-                  <span class="vote-countdown-name">Days · أيام</span>
-                </div>
-                <div class="vote-countdown-unit">
-                  <span class="vote-countdown-value" id="vote-hours">--</span>
-                  <span class="vote-countdown-name">Hours · ساعات</span>
-                </div>
-                <div class="vote-countdown-unit">
-                  <span class="vote-countdown-value" id="vote-minutes">--</span>
-                  <span class="vote-countdown-name">Min · دقيقة</span>
-                </div>
-                <div class="vote-countdown-unit">
-                  <span class="vote-countdown-value" id="vote-seconds">--</span>
-                  <span class="vote-countdown-name">Sec · ثانية</span>
-                </div>
-              </div>
+            <p class="vote-thanks">
+              Thank you to everyone who voted for Arabizzi, and congratulations to
+              all qualifying teams. Good luck in the finals.
+            </p>
+            <p class="vote-thanks" lang="ar">
+              شكراً لكل من صوّت لـ Arabizzi، وتهانينا للفرق المتأهلة — مع
+              تمنياتنا للجميع بالتوفيق.
+            </p>
+
+            <div class="linkedin-embed-wrap">
+              <iframe
+                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7476463112163028992?collapsed=1"
+                height="567"
+                width="504"
+                frameborder="0"
+                allowfullscreen=""
+                title="Qabilah hackathon final qualifiers announcement on LinkedIn"
+                loading="lazy"
+              ></iframe>
             </div>
 
-            <ol class="vote-steps">
-              <li class="vote-step">
-                <span class="vote-step-num" aria-hidden="true">1</span>
-                <div class="vote-step-body">
-                  <h2>Open the link &amp; sign in</h2>
-                  <p>
-                    Open the Arabizzi project on Qabilah using the button below.
-                    If you don't have an account, create one with
-                    <strong>Google</strong> or <strong>LinkedIn</strong>.
-                  </p>
-                  <p class="vote-step-ar">
-                    افتح رابط المشروع. إذا لم يكن لديك حساب، سجّل عبر Google أو
-                    LinkedIn.
-                  </p>
-                  <div class="vote-step-img-wrap">
-                    <img
-                      class="vote-step-img"
-                      src="./images/vote/step-signup.png"
-                      alt="Qabilah sign-in screen with Google and LinkedIn buttons"
-                      loading="lazy"
-                      width="1024"
-                      height="948"
-                    />
-                  </div>
-                </div>
-              </li>
-              <li class="vote-step">
-                <span class="vote-step-num" aria-hidden="true">2</span>
-                <div class="vote-step-body">
-                  <h2>Click <span dir="rtl">«تصويت»</span></h2>
-                  <p>
-                    On the project page, tap the
-                    <strong>Vote</strong> button on the bottom right —
-                    <strong dir="rtl">تصويت</strong> in Arabic.
-                  </p>
-                  <p class="vote-step-ar">
-                    في صفحة المشروع، اضغط زر «تصويت» في الأسفل على اليمين.
-                  </p>
-                  <div class="vote-step-img-wrap vote-step-img-wrap--highlight">
-                    <img
-                      class="vote-step-img"
-                      src="./images/vote/step-vote.png"
-                      alt="Arabizzi project page on Qabilah — tap the Vote (تصويت) button at the bottom right"
-                      loading="lazy"
-                      width="1024"
-                      height="964"
-                    />
-                    <span class="vote-highlight-ring" aria-hidden="true"></span>
-                  </div>
-                </div>
-              </li>
-            </ol>
+            <h2 class="qabilah-finals-heading" lang="ar">المشاريع المتأهلة</h2>
+            <ul class="qabilah-finals-list" aria-label="Qualified projects">
+              <li><a href="https://lnkd.in/dX3_bKqZ" target="_blank" rel="noopener noreferrer">صحبة · SOHBA</a></li>
+              <li><a href="https://lnkd.in/d2JxRvwT" target="_blank" rel="noopener noreferrer">راوي · Rawi</a></li>
+              <li><a href="https://lnkd.in/dtgmABS5" target="_blank" rel="noopener noreferrer">ريتك · Rateek</a></li>
+              <li><a href="https://lnkd.in/dYJ7ydYV" target="_blank" rel="noopener noreferrer">كاشف مستحق الحضانة</a></li>
+              <li><a href="https://lnkd.in/dyjyr_zQ" target="_blank" rel="noopener noreferrer">3elty</a></li>
+              <li><a href="https://lnkd.in/dGKgS4-2" target="_blank" rel="noopener noreferrer">ALIENs Venture</a></li>
+              <li class="is-arabizzi"><a href="https://lnkd.in/dm8pajnb" target="_blank" rel="noopener noreferrer">arabizzi</a></li>
+              <li><a href="https://lnkd.in/dWZggXkb" target="_blank" rel="noopener noreferrer">CyZone</a></li>
+              <li><a href="https://lnkd.in/d8gfQBxP" target="_blank" rel="noopener noreferrer">Digilians AI for Pentesting</a></li>
+              <li><a href="https://lnkd.in/dAPCCfnh" target="_blank" rel="noopener noreferrer">Rawaj</a></li>
+            </ul>
+
+            <p class="qabilah-finals-note" lang="ar">
+              * ترتيب المشاريع أبجدي، مع تقديم المشاريع التي تستخدم اسماً عربياً.
+            </p>
+            <p class="qabilah-finals-note">
+              Projects are listed alphabetically, with Arabic-named projects listed
+              first — as published by Qabilah on LinkedIn.
+            </p>
+
+            <div class="qabilah-results-grid">
+              <figure class="qabilah-result-shot">
+                <span class="qabilah-result-label" lang="ar">المشاريع المتأهلة</span>
+                <img
+                  src="./images/qabilah/top10-finalists.png"
+                  alt="Qabilah hackathon announcement showing the top 10 projects qualified for the final stage"
+                  loading="lazy"
+                  width="960"
+                  height="540"
+                />
+              </figure>
+              <figure class="qabilah-result-shot qabilah-result-secondary">
+                <span class="qabilah-result-label" lang="ar">مشروع Arabizzi</span>
+                <img
+                  src="./images/qabilah/arabizzi-project.png"
+                  alt="Arabizzi project card on Qabilah hackathon with team name and QR code"
+                  loading="lazy"
+                  width="640"
+                  height="360"
+                />
+              </figure>
+            </div>
 
             <div class="vote-actions">
               <a
                 class="btn btn-vote"
+                href="https://lnkd.in/dm8pajnb"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Arabizzi on LinkedIn
+              </a>
+              <a
+                class="btn btn-vote btn-vote-outline"
                 href="https://qabilah.com/hackathon/255665101472799432/projects/259793491490504704"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Vote for Arabizzi on Qabilah
+                Open on Qabilah
               </a>
-              <span class="vote-note">Free · less than 1 minute</span>
+              <span class="vote-note">Final stage · التصفيات النهائية</span>
             </div>
           </article>
         </main>
@@ -574,45 +722,6 @@
       </div>
     </div>
 
-    <script>
-      (function () {
-        const countdown = document.getElementById("vote-countdown");
-        if (!countdown) return;
-
-        const end = new Date(countdown.dataset.end || "").getTime();
-        const daysEl = document.getElementById("vote-days");
-        const hoursEl = document.getElementById("vote-hours");
-        const minutesEl = document.getElementById("vote-minutes");
-        const secondsEl = document.getElementById("vote-seconds");
-
-        function pad(value) {
-          return String(value).padStart(2, "0");
-        }
-
-        function tick() {
-          const remaining = end - Date.now();
-          if (remaining <= 0) {
-            countdown.innerHTML =
-              '<p class="vote-countdown-ended">Voting has closed · انتهى التصويت</p>';
-            return;
-          }
-
-          const totalSeconds = Math.floor(remaining / 1000);
-          const days = Math.floor(totalSeconds / 86400);
-          const hours = Math.floor((totalSeconds % 86400) / 3600);
-          const minutes = Math.floor((totalSeconds % 3600) / 60);
-          const seconds = totalSeconds % 60;
-
-          if (daysEl) daysEl.textContent = pad(days);
-          if (hoursEl) hoursEl.textContent = pad(hours);
-          if (minutesEl) minutesEl.textContent = pad(minutes);
-          if (secondsEl) secondsEl.textContent = pad(seconds);
-        }
-
-        tick();
-        setInterval(tick, 1000);
-      })();
-    </script>
     <script>
       window.Fu = window.Fu || {};
       Fu.access_token = "c73c052759e3602ca716ff469cde44";
